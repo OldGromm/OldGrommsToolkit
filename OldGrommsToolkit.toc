@@ -1,0 +1,22 @@
+## Interface: 11509, 20506, 50504, 120007, 120100
+## Title: OldGromm's Toolkit
+## Author: OldGromm
+## Version: 1.1
+## IconTexture: Interface\Addons\OldGrommsToolkit\images\GRTK_Images_Icon.blp
+## Notes: Contains various smaller functions.
+## Category: Other
+## Category-deDE: Anderes
+## Category-esES: Otros
+## Category-esMX: Otros
+## Category-frFR: Autre
+## Category-itIT: Altro
+## Category-koKR: 기타
+## Category-ptBR: Outro
+## Category-ruRU: Другое
+## Category-zhCN: 其它
+## Category-zhTW: 其他
+## Bindings: bindings.xml
+## LoadSavedVariablesFirst: 1
+## SavedVariables: GRTKDB_Profiles, GRTKDB_MinimapButton, GRTKDB_EditMode, GRTKDB_Cache 
+
+embeds.xml

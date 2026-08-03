@@ -1,0 +1,11 @@
+1.0
+
+- Initial Release
+
+________________________________________________
+
+1.1
+
+- Added profile support (each options category can use either an account-wide setup or each individual character's setup)
+
+- Added hearthstone macro.

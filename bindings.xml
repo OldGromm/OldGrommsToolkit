@@ -1,0 +1,8 @@
+<Bindings>
+    <Binding name="Change Specialization" category="OldGromm's Toolkit">
+        GRTK_SpecChange_Keybind()
+    </Binding>
+    <Binding name="Reload Interface" category="OldGromm's Toolkit">
+        GRTK_General_ReloadInterface()
+    </Binding>
+</Bindings>
