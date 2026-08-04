@@ -22,11 +22,13 @@ function GRTK_Macros_GenerateTextstring(input_type)
 
 	for i, v in ipairs(GRTKTemp_PrefixTable) do
 	    if GRTK_MacroTextBody[GRTKTemp_Type][i] == nil then
-		
 		else
             local GRTKTemp_MacroText = GRTK_MacroTextBody[GRTKTemp_Type][i]
 			if v == " [swimming,nomod]" and GRTK_PlayerStats_IsUnderwater == false then
-			    GRTKTemp_MacroText = GRTK_MacroTextBody[GRTKTemp_Type][2]
+				GRTKTemp_MacroText = GRTK_MacroTextBody[GRTKTemp_Type][2]
+				if GRTKTemp_MacroText == nil then
+				    GRTKTemp_MacroText = ""
+				end
 			end
 
 			GRTKTemp_String = (v..GRTKTemp_MacroText)
