@@ -9,3 +9,11 @@ ________________________________________________
 - Added profile support (each options category can use either an account-wide setup or each individual character's setup)
 
 - Added hearthstone macro.
+
+________________________________________________
+
+1.2
+
+- Fixed the special mount icon not disappearing after resetting the list
+
+- Fixed an error when adding an aquatic mount to the list while there was no flying mount present.
