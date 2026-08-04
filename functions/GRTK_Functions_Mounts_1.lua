@@ -27,15 +27,14 @@ end
 
 function GRTK_Mounts_RefreshIconList()
     for i=1, 4 do
+	    local GRTKTemp_IconStringFinal = ""
 	    local GRTKTemp_MountType = GRTK_Mounts_MountType[i]
 	    local GRTKTemp_FrameName = ("GRTK_Mounts_Frame_MountMenu_String_"..GRTKTemp_MountType)
 	    local GRTKTemp_FrameNameFinal = _G[GRTKTemp_FrameName]
-		
 		local GRTKTemp_Table = GRTK_UV("Load", 5, "Mounts_"..GRTKTemp_MountType.."_List")
-		local GRTKTemp_IconStringFinal = ""
 
-        if GRTKTemp_Table == nil then
-		
+        if GRTK_UV("NilCheck", 5, "Mounts_"..GRTKTemp_MountType.."_List") == true then
+		    GRTKTemp_FrameNameFinal:SetText(" ")
 		else
 		    if GRTKTemp_MountType == "Other" then
 			    local GRTKTemp_IconString = GRTK_Macros_FetchMountIcon(GRTKTemp_Table)
