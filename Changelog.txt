@@ -17,3 +17,13 @@ ________________________________________________
 - Fixed the special mount icon not disappearing after resetting the list
 
 - Fixed an error when adding an aquatic mount to the list while there was no flying mount present.
+
+________________________________________________
+
+1.3
+
+- Added an option to only display the combat lockdown message once per error type or hide it completely.
+  This setting works independently from the other add-on messages its and its display settings.
+
+- The add-on will now only update the list order when dismounting, and edit the macro when mounting up.
+  This should fix the constant combat lockdown messages when dismounting and simultaneously getting into combat.

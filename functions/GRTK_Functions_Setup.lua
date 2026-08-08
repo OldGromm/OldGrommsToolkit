@@ -142,7 +142,16 @@ function GRTK_Setup_GameClientVersion()
 	    GRTK_ExpansionLevel = 2
 	else
 	    GRTK_ExpansionLevel = 1
-	end	
+	end
+	
+	
+	---- different combat lockdown messages
+	if GRTKTemp_InterfaceVersion >= 70000 then -- Legion or later
+	    GRTK_CombatLockdown_MessageType = {"Combat", "Encounter", "MythicPlus", "PvP"}
+	else
+	    GRTK_CombatLockdown_MythicPlus = {"Combat", "Encounter", "ChallengeMode", "PvP"}
+	end
+	
 end
 
 

@@ -49,7 +49,11 @@ GRTK_Event_Mounts_PlayerIsUnderwater:SetScript("OnEvent", function(_, event, tim
     			GRTK_PlayerStats_IsUnderwater = true
     		end
     	end
-        GRTK_Macros_Update("Mounts")
+		if GRTK_General_CombatCheck() == false then
+            GRTK_Macros_Update("Mounts")
+	    else
+	        GRTK_CombatLockdown_SendMessage("Mounts")
+	    end 
     end
 end)
 
@@ -57,12 +61,17 @@ end)
 GRTK_Event_Mounts_MountSummon = CreateFrame("Frame")
 GRTK_Event_Mounts_MountSummon:RegisterEvent("PLAYER_MOUNT_DISPLAY_CHANGED")
 GRTK_Event_Mounts_MountSummon:SetScript("OnEvent", function(self, event)
-    if not IsMounted() then
-	    RunNextFrame(function()
-    	GRTK_Macros_AdvanceListOrder("Mounts")
-		GRTK_Macros_Update("Mounts")
-		end)
-    end
+    RunNextFrame(function()
+        if not IsMounted() then
+        	GRTK_Macros_AdvanceListOrder("Mounts")
+        else
+			if GRTK_General_CombatCheck() == false then
+			    GRTK_Macros_Update("Mounts")
+			else
+    	        GRTK_CombatLockdown_SendMessage("Mounts")
+    	    end
+		end
+    end)
 end)
 
 ---- Update when player changes zones.
@@ -70,8 +79,12 @@ GRTK_Event_Mounts_ZoneChange = CreateFrame("Frame")
 GRTK_Event_Mounts_ZoneChange:RegisterEvent("PLAYER_ENTERING_WORLD")
 GRTK_Event_Mounts_ZoneChange:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 GRTK_Event_Mounts_ZoneChange:SetScript("OnEvent", function(self, event)
-	GRTK_Mounts_CheckForOverrides()
-	GRTK_Macros_Update("Mounts")
+    if GRTK_General_CombatCheck() == false then
+	    GRTK_Mounts_CheckForOverrides()
+	    GRTK_Macros_Update("Mounts")
+	else
+	    GRTK_CombatLockdown_SendMessage("Mounts")
+	end
 end)
 
 
@@ -83,4 +96,16 @@ GRTK_Event_ToysUpdated = CreateFrame("Frame")
 GRTK_Event_ToysUpdated:RegisterEvent("LOADING_SCREEN_DISABLED")
 GRTK_Event_ToysUpdated:SetScript("OnEvent", function(self, event)
     GRTK_Hearthstone_CheckCooldown()
+end)
+
+
+
+
+-- Combat Lockdown
+GRTK_Event_CombatLockdown_PlayerEnteringWorld = CreateFrame("Frame")
+GRTK_Event_CombatLockdown_PlayerEnteringWorld:RegisterEvent("PLAYER_ENTERING_WORLD")
+GRTK_Event_CombatLockdown_PlayerEnteringWorld:SetScript("OnEvent", function(self, event, isLogin, isReload)
+    if isLogin == true then
+	    GRTKDB_Cache["CombatLockdown"] = {}
+	end
 end)

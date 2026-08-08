@@ -40,6 +40,8 @@ end
 function GRTK_Mounts_ButtonReaction(input_type)
 	if GRTK_Mounts_LockButtons == false then
 	    GRTK_Mounts_LockButtons = true
+
+        if GRTK_General_CombatCheck() == false then
             if input_type == "add" then
 			    GRTK_Mounts_ButtonFunction_UpdateList("add")
 			elseif input_type == "remove" then
@@ -48,6 +50,11 @@ function GRTK_Mounts_ButtonReaction(input_type)
 			    GRTK_Mounts_ButtonFunction_ResetList()
 			else
 			end
+	    else
+	        GRTK_CombatLockdown_SendMessage("MountMenu")
+	    end
+
 		RunNextFrame(function() GRTK_Mounts_LockButtons = false end)
+
 	end
 end

@@ -24,12 +24,20 @@ function GRTK_Options_OnSettingChanged_Account(setting, value)
 
 
 		if setting.variableKey == "Mounts_UseAccountWide" then
-            GRTK_Mounts_RefreshIconList()
-			GRTK_Mounts_CheckForOverrides()
-            GRTK_Macros_Update("Mounts")
+		    if GRTK_General_CombatCheck() == false then
+                GRTK_Mounts_RefreshIconList()
+			    GRTK_Mounts_CheckForOverrides()
+                GRTK_Macros_Update("Mounts")
+	        else
+	            GRTK_CombatLockdown_SendMessage("Settings")
+	        end
 		elseif setting.variableKey == "Hearthstone_UseAccountWide" then
-            GRTK_Hearthstone_GenerateNewList()
-            GRTK_Macros_Update("Hearthstone")
+		    if GRTK_General_CombatCheck() == false then
+                GRTK_Hearthstone_GenerateNewList()
+                GRTK_Macros_Update("Hearthstone")
+	        else
+	            GRTK_CombatLockdown_SendMessage("Settings")
+	        end
 		else
 		end
 
@@ -143,10 +151,19 @@ function GRTK_Options_OnSettingChanged_Mounts(setting, value)
 
 		local GRTKTemp_MountsEnabled = GRTK_UV("Load", 5, "Mounts_Enabled")
 		if GRTKTemp_MountsEnabled == false then
-		    GRTK_Macros_Delete("Mounts")
+		    if GRTK_General_CombatCheck() == false then
+			    GRTK_Macros_Delete("Mounts")
+	        else
+	            GRTK_CombatLockdown_SendMessage("Settings")
+	        end
 		elseif GRTKTemp_MountsEnabled == true then
-			GRTK_Mounts_CheckForOverrides()
-            GRTK_Macros_Update("Mounts")
+		    if GRTK_General_CombatCheck() == false then
+			    GRTK_Mounts_CheckForOverrides()
+                GRTK_Macros_Update("Mounts")
+	        else
+	            GRTK_CombatLockdown_SendMessage("Settings")
+	        end
+
 
 		    if GRTK_Mounts_WorgenDruidCheck() == true then
                 GRTK_Mounts_WorgenDruidOptions(setting.variable, value)
@@ -168,7 +185,11 @@ function GRTK_Options_OnSettingChanged_Hearthstone(setting, value)
 
         if setting.variableKey == "Hearthstone_Enabled" then
 		    if value == false then
-			    GRTK_Macros_Delete("Hearthstone")
+		        if GRTK_General_CombatCheck() == false then
+                    GRTK_Macros_Delete("Hearthstone")
+	            else
+	                GRTK_CombatLockdown_SendMessage("Settings")
+	            end
 			end
 		end
 
@@ -183,7 +204,11 @@ function GRTK_Options_OnSettingChanged_Hearthstone(setting, value)
 			end
 		end
 
-		GRTK_Macros_Update("Hearthstone")
+		if GRTK_General_CombatCheck() == false then
+            GRTK_Macros_Update("Hearthstone")
+	    else
+	        GRTK_CombatLockdown_SendMessage("Settings")
+	    end
 
 	    RunNextFrame(function() GRTK_Options_Timeout = false end)
 	end

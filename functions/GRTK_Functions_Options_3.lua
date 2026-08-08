@@ -37,7 +37,9 @@ function GRTK_Options_CreateOptionsEntry(input_name, input_extratooltip, input_c
         GRTKTemp_LocaleVariableDescription = (GRTKTemp_LocaleVariableDescription.."\n\n".."("..GRTK_Text_Options_ModifierNote_Below..")".."\n\n".."("..GRTK_Text_Options_ModifierNote_Disable..")")
     elseif input_extratooltip == 4 then
         GRTKTemp_LocaleVariableDescription = (GRTKTemp_LocaleVariableDescription.."\n\n".."("..GRTK_Text_Options_ModifierNote_Above..")".."\n\n".."("..GRTK_Text_Options_ModifierNote_Disable..")")
-    else
+    elseif input_extratooltip == 5 then
+        GRTKTemp_LocaleVariableDescription = (GRTKTemp_LocaleVariableDescription.."\n\n".."("..GRTK_Text_Options_General_CombatLockdown_Description_PartTwo..")")
+	else
     end
 
 
@@ -115,6 +117,10 @@ function GRTK_Options_CreateOptionsEntry(input_name, input_extratooltip, input_c
 			    for i, v in ipairs(GRTK_UserLanguage_Full) do
                     container:Add(i, v)
 			    end
+            elseif input_dropdownID == 8 then
+                container:Add(1, GRTK_Text_Options_General_CombatLockdown_Never)
+                container:Add(2, GRTK_Text_Options_General_CombatLockdown_Once)
+                container:Add(3, GRTK_Text_Options_General_CombatLockdown_Always)
 			else
 			end
 

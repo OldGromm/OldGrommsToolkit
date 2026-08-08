@@ -8,6 +8,7 @@ function GRTK_Initialization_CreateOptionsMenu()
 	GRTK_Options_CreateOptionsEntry("Language", 1, 1, 2, GRTK_UserLanguage_Default, 7)
 	GRTK_Options_CreateOptionsEntry("Messages", nil, 1, 1, true)
 	GRTK_Options_CreateOptionsEntry("MessageColor", nil, 1, 3)
+	GRTK_Options_CreateOptionsEntry("CombatLockdown", 5, 1, 2, 2, 8)
 	GRTK_Options_CreateOptionsEntry("MinimapButton", nil, 1, 1, true)
 	if GRTK_Compartment_Enable == true then
 	    GRTK_Options_CreateOptionsEntry("CompartmentButton", 1, 1, 1, true)
@@ -160,18 +161,24 @@ GRTK_Event_Setup_PlayerLogin:SetScript("OnEvent", function(_, event)
 
 
             -- create macros
-			if GRTK_ExpansionLevel > 1 then
-			    GRTK_Macros_Delete("Mounts")
-			end
+            if GRTK_General_CombatCheck() == false then
+			    if GRTK_ExpansionLevel > 1 then
+			        GRTK_Macros_Delete("Mounts")
+			    end
 
 
-			if GRTK_ExpansionLevel == 3 then
-			    GRTK_Macros_Delete("Hearthstone")
-                if GRTK_UV("NilCheck", 6, "Hearthstone_List") == true then
-                    GRTK_Hearthstone_GenerateNewList()
-                end
-			    GRTK_Macros_Update("Hearthstone")
-			end
+			    if GRTK_ExpansionLevel == 3 then
+			        GRTK_Macros_Delete("Hearthstone")
+                    if GRTK_UV("NilCheck", 6, "Hearthstone_List") == true then
+                        GRTK_Hearthstone_GenerateNewList()
+                    end
+			        GRTK_Macros_Update("Hearthstone")
+			    end
+	        else
+	            GRTK_CombatLockdown_SendMessage("Startup")
+	        end
+			
+
 
 
             -- disable certain events for older versions of the game

@@ -1,16 +1,12 @@
 -- combat check
 function GRTK_General_CombatCheck()
-    local GRTKTemp_PlayerIsInCombat = false
-
-	if PlayerIsInCombat() == true then
-	    GRTKTemp_PlayerIsInCombat = true
+    local GRTKTemp_RestrictionType = false
+    for i=0, 3 do
+	    if C_RestrictedActions.IsAddOnRestrictionActive(i) == true then
+		    GRTKTemp_RestrictionType = true
+		end
 	end
-
-	if C_ChallengeMode.IsChallengeModeActive() == true then
-	    GRTKTemp_PlayerIsInCombat = true
-	end
-
-    return GRTKTemp_PlayerIsInCombat
+	return GRTKTemp_RestrictionType
 end
 
 

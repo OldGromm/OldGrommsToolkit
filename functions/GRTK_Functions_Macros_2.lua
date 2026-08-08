@@ -69,20 +69,16 @@ function GRTK_Macros_Create(input_type)
 	end
 
     if GRTK_UV("Load", GRTKTemp_Category, GRTKTemp_Type.."_Enabled") == true then
-	    if GRTK_General_CombatCheck() == false then
-		    local GRTKTemp_MacroName = ("GRTK_"..GRTKTemp_Type)
-			local GRTKTemp_MacroIndex = GetMacroIndexByName(GRTKTemp_MacroName)
+        local GRTKTemp_MacroName = ("GRTK_"..GRTKTemp_Type)
+        local GRTKTemp_MacroIndex = GetMacroIndexByName(GRTKTemp_MacroName)
 
-            -- Check if macro exists already or not, otherwise update it.
-            if GRTKTemp_MacroIndex == 0 then
-                CreateMacro(GRTKTemp_MacroName, GRTKTemp_MacroIcon, GRTKTemp_MacroText)
-            else
-                EditMacro(GRTKTemp_MacroIndex, nil, nil, GRTKTemp_MacroText)
-            end
-		else
-		    GRTK_SendAddonLockdownMessage(GRTKTemp_Type)
-		end
-	end
+        -- Check if macro exists already or not, otherwise update it.
+        if GRTKTemp_MacroIndex == 0 then
+            CreateMacro(GRTKTemp_MacroName, GRTKTemp_MacroIcon, GRTKTemp_MacroText)
+        else
+            EditMacro(GRTKTemp_MacroIndex, nil, nil, GRTKTemp_MacroText)
+        end
+    end
 
 end
 
@@ -103,24 +99,20 @@ function GRTK_Macros_Delete(input_type)
 	end
 
     if GRTK_UV("Load", GRTKTemp_Category, GRTKTemp_Type.."_Enabled") == false then
-	    if GRTK_General_CombatCheck() == false then
-		    for i=1, 2 do
-    	        local GRTKTemp_MacroIndex = select(i, GetNumMacros())
-    	    	local GRTKTemp_StartingPoint = GRTKTemp_MacroRange[i]
-    	    	if GRTKTemp_MacroIndex == 0 or nil then
-    
-    	    	else
-    	    		for i=GRTKTemp_StartingPoint, GRTKTemp_MacroIndex do
-    	    		    local GRTKTemp_MacroName2 = select(1, GetMacroInfo(i))
-    	    			if GRTKTemp_MacroName2 == GRTKTemp_MacroName then
-    	    			    DeleteMacro(i)
-    	    			end
-    				end
-    	    	end
+		for i=1, 2 do
+    	    local GRTKTemp_MacroIndex = select(i, GetNumMacros())
+    	    local GRTKTemp_StartingPoint = GRTKTemp_MacroRange[i]
+    	    if GRTKTemp_MacroIndex == 0 or nil then
+
+    	    else
+    	    	for i=GRTKTemp_StartingPoint, GRTKTemp_MacroIndex do
+    	    		local GRTKTemp_MacroName2 = select(1, GetMacroInfo(i))
+    	    		if GRTKTemp_MacroName2 == GRTKTemp_MacroName then
+    	    			DeleteMacro(i)
+    	    		end
+    			end
     	    end
-		else
-		    GRTK_SendAddonLockdownMessage(GRTKTemp_Type)
-		end
+    	end
 	end
 
 end
@@ -193,7 +185,8 @@ function GRTK_Macros_Update(input_type)
     GRTK_MacroTextBody[input_type] = {}
 
     GRTK_Macros_FetchListEntry(GRTKTemp_Type)
-	
+
+
 	-- if this is the hearthstone list, and the next one is the Draenic Hologem,
 	-- and this character isn't a draenei, skip this one and use the next stone in the list.
 	if GRTK_ExpansionLevel == 3 then
@@ -218,8 +211,6 @@ function GRTK_Macros_Update(input_type)
     	    end
     	end
 	end
-	
-	
 
 
 	if GRTKTemp_Type == "Hearthstone" then

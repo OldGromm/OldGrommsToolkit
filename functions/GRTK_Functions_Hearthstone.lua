@@ -71,8 +71,20 @@ function GRTK_Hearthstone_CheckCooldown()
     		end
 
     		if GRTKTemp_Proceed == true then
-                GRTK_Macros_AdvanceListOrder("Hearthstone")
-    		    GRTK_Macros_Update("Hearthstone")
+			    if GRTK_General_CombatCheck() == false then
+                    GRTK_Macros_AdvanceListOrder("Hearthstone")
+    		        GRTK_Macros_Update("Hearthstone")
+	            else
+				---- try again if, for some reason, the player was stuck in combat right after teleporting.
+	            C_Timer.After(1.0, function()
+				    if GRTK_General_CombatCheck() == false then
+					    GRTK_Macros_AdvanceListOrder("Hearthstone")
+    		            GRTK_Macros_Update("Hearthstone")
+					else
+					    GRTK_CombatLockdown_SendMessage("Hearthstone")
+					end
+				end)
+	            end
     		end
     	end
 

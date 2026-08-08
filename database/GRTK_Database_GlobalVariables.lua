@@ -3,6 +3,7 @@ GRTKDB_Profiles = GRTKDB_Profiles or {}
 GRTKDB_MinimapButton = GRTKDB_MinimapButton or {}
 GRTKDB_EditMode = GRTKDB_EditMode or {}
 GRTKDB_Cache = GRTKDB_Cache or {}
+GRTKDB_Cache["CombatLockdown"] = GRTKDB_Cache["CombatLockdown"] or {}
 GRTKDB_Options = {}
 
 
@@ -49,7 +50,6 @@ GRTK_PlayerStats_CurrentClassName = {}
 GRTK_PlayerStats_CurrentRace = {}
 GRTK_PlayerStats_CurrentFaction = {}
 GRTK_PlayerStats_CurrentFactionNumber = {}
-GRTK_PlayerStats_CurrentRegion = {}
 GRTK_PlayerStats_IsUnderwater = false
 
 
@@ -80,7 +80,6 @@ GRTK_SpecChange_Icons[13] = { 4511811, 4511812, 5198700 } -- Evoker
 GRTK_SpecChange_DefaultChoice = {2, 3, 1, 1, 3, 1, 2, 1, 1, 2, 2, 1, 1}
 
 GRTK_SpecChange_OptionsMenu_Choice = {}
-GRTK_SpecChange_Timeout = false
 GRTK_SpecChange_UnlockedDevourerSpec = false
 
 
@@ -122,7 +121,6 @@ GRTK_Mounts_SpecialMountList_Final = {}
 GRTK_Mounts_SpecialMountList_PlayerHasNone = false
 GRTK_Mounts_Frame_MountMenu = {}
 GRTK_Mounts_Frame_MountMenu_Visibility = false
-GRTK_Mounts_Timeout = false
 
 
 
@@ -173,7 +171,6 @@ GRTK_Hearthstone_Missing_List = {}
 GRTK_Hearthstone_Missing_Count = 0
 GRTK_Hearthstone_MainChoice = 0
 GRTK_Hearthstone_MessageParts = {}
-GRTK_Hearthstone_Timeout = false
 GRTK_Hearthstone_Cooldown = 0
 
 
@@ -210,7 +207,7 @@ GRTK_CombatLockdown_Frame_Message_02 = {}
 GRTK_CombatLockdown_Frame_Message_03 = {}
 GRTK_CombatLockdown_Frame_Message_EditMode = {}
 GRTK_CombatLockdown_Message_Count = 0
-
+GRTK_CombatLockdown_MessageType = {}
 
 
 

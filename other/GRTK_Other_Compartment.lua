@@ -4,7 +4,7 @@ function GRTK_Other_OpenSettingsMenu()
 	    local GRTKTemp_SettingsLink = GRTK_Options_Category_Main:GetID()
         Settings.OpenToCategory(GRTKTemp_SettingsLink)
 	else
-	    GRTK_SendAddonLockdownMessage("Minimap")
+	    GRTK_CombatLockdown_SendMessage("MinimapButton")
 	end
 end
 

@@ -48,6 +48,13 @@ GRTK_Text_Options_General_Messages_Description = "Ändert den Anzeigestatus der 
 GRTK_Text_Options_General_MessageColor_Title = "Nachrichten-Farbe ändern"
 GRTK_Text_Options_General_MessageColor_Description = "Ändert die Farbe der Abkürzung des Add-on Namens, welches bei Chatnachrichten verwendet wird."
 GRTK_Text_Options_General_MessageColor_Extra = "Farbenmenü öffnen"
+------ Combat Lockdown
+GRTK_Text_Options_General_CombatLockdown_Title = "Häufigkeit der Kampfblockade"
+GRTK_Text_Options_General_CombatLockdown_Description = "Änderd die Häufigkeit, mit welcher die Fehlernachricht bezüglich der Kampfblockade angezeigt wird."
+GRTK_Text_Options_General_CombatLockdown_Description_PartTwo = "Diese Option wird nicht durch die \"Nachrichten ein-/ausschalten\"-Funktion beeinflusst."
+GRTK_Text_Options_General_CombatLockdown_Never = "Keine Nachricht"
+GRTK_Text_Options_General_CombatLockdown_Once = "Einmal für jede Art des Fehlers"
+GRTK_Text_Options_General_CombatLockdown_Always = "Immer anzeigen"
 ------ Minimap button
 GRTK_Text_Options_General_MinimapButton_Title = "Minimap-Button ein/ausblenden"
 GRTK_Text_Options_General_MinimapButton_Description = "Ändert den Anzeigestatus des Minimap-Buttons."
@@ -171,6 +178,8 @@ GRTK_Text_ChatMessage_Hearthstone_DraenicHologem_PartThree = "Es wurde stattdess
 
 
 
+
+
 -- Mount Macro Menu
 GRTK_Text_Mounts_AddMount = "Hinzufügen"
 GRTK_Text_Mounts_RemoveMount = "Entfernen"
@@ -209,6 +218,30 @@ GRTK_Text_Mounts_InfoButton_ResetList_PartFour = "Haltet die Shift-Taste gedrüc
 
 
 
+-- Combat Lockdown
+GRTK_Text_CombatLockdown_Startup = "Makros konnten nach dem Log-in nicht aktualisiert werden."
+GRTK_Text_CombatLockdown_Advance = "Die Makroliste konnte nicht aktualisiert werden."
+GRTK_Text_CombatLockdown_Mounts = "Das Reittier-Makro konnte nicht aktualisiert werden."
+GRTK_Text_CombatLockdown_Hearthstone = "Das Ruhesteine-Makro konnte nicht aktualisiert werden."
+GRTK_Text_CombatLockdown_MountMenu = "Das Reittier-Makromenü konnte nicht genutzt werden."
+GRTK_Text_CombatLockdown_Settings = "Die Einstellungen konnten nicht übernommen werden."
+GRTK_Text_CombatLockdown_TryAgain = "Bitte überprüfen Sie die Einstellungen nach dem Ende des Kampfes und wiederholen Sie die vorherige Änderung."
+GRTK_Text_CombatLockdown_MinimapButton = "Das Optionsmenü konnte nicht geöffnet werden."
+
+GRTK_Text_CombatLockdown_Reason = "Grund"
+GRTK_Text_CombatLockdown_Combat = "Ihr befindet Euch inmitten eines Kampfes."
+GRTK_Text_CombatLockdown_Encounter = "Ihr befindet Euch inmitten eines Bosskampfes."
+GRTK_Text_CombatLockdown_ChallengeMode = "Der Herausforderungsmodus ist momentan aktiv."
+GRTK_Text_CombatLockdown_MythicPlus = "Ihr befindet Euch in einem Mythisch+ Szenari."
+GRTK_Text_CombatLockdown_PvP = "Ihr befindet Euch in einem PvP-Szenario."
+
+GRTK_Text_CombatLockdown_EditMode = "Kampfblockade-Nachricht"
+
+
+
+
+
+
 -- Other
 ---- Chat Messages
 GRTK_Text_AddonNameAbbreviated = "GRTK"
@@ -221,12 +254,6 @@ GRTK_Text_Compartment_Description_Vanilla_PartOne = "Linksklick, um die Talents-
 GRTK_Text_RequiresReload = "Änderungen an dieser Option treten erst nach einem \"/reload\" oder Neustart des Spiels in Kraft."
 ---- Edit Mode
 GRTK_Text_EditMode_MessageScale = "Skalierung"
----- Combat Lockdown
-GRTK_Text_CombatLockdown_MinimapButton = "Das Optionsmenü kann inmitten eines Kampfes nicht geöffnet werden."
-GRTK_Text_CombatLockdown_Mounts = "Das Reittier-Makro kann inmitten eines Kampfes nicht aktualisiert werden."
-GRTK_Text_CombatLockdown_Hearthstone = "Das Ruhesteine-Makro kann inmitten eines Kampfes nicht aktualisiert werden."
-GRTK_Text_CombatLockdown_TryAgain = "Bitte überprüfen Sie die Einstellungen nach dem Ende des Kampfes und wiederholed Sie die vorherige Änderung."
-GRTK_Text_CombatLockdown_EditMode = "Kampfblockade-Nachricht"
 ---- Missing Player Data
 GRTK_Text_MissingCharacterName = "WARNUNG! Der Name Eures momentanen Charakters konnten nicht abgerufen werden. Es werden stattdessen die Account-Einstellungen verwendet."
 GRTK_Text_MissingPlayerData = "WARNUNG! Die Daten Eures momentanen Charakters konnten nicht abgerufen werden. Das Interface muss in einer sicheren Sitaution neu geladen werden, damit das Add-on funktionieren kann."

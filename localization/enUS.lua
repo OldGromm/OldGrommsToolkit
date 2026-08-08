@@ -48,6 +48,13 @@ GRTK_Text_Options_General_Messages_Description = "Check to show chat messages re
 GRTK_Text_Options_General_MessageColor_Title = "Change Message Color"
 GRTK_Text_Options_General_MessageColor_Description = "Changes the color used by the abbreviated add-on name when displaying a chat message."
 GRTK_Text_Options_General_MessageColor_Extra = "Open Color Menu"
+------ Combat Lockdown
+GRTK_Text_Options_General_CombatLockdown_Title = "Lockdown Message Frequency"
+GRTK_Text_Options_General_CombatLockdown_Description = "Determines how often the error message related to the combat lockdown should be display."
+GRTK_Text_Options_General_CombatLockdown_Description_PartTwo = "This setting is unaffected by the \"Toggle Add-on Messages\" function."
+GRTK_Text_Options_General_CombatLockdown_Never = "No message"
+GRTK_Text_Options_General_CombatLockdown_Once = "Once for each error type"
+GRTK_Text_Options_General_CombatLockdown_Always = "Always display message"
 ------ Minimap button
 GRTK_Text_Options_General_MinimapButton_Title = "Toggle Minimap Button"
 GRTK_Text_Options_General_MinimapButton_Description = "Check to show the button. Uncheck to hide the button."
@@ -171,6 +178,8 @@ GRTK_Text_ChatMessage_Hearthstone_DraenicHologem_PartThree = "The next stone in 
 
 
 
+
+
 -- Mount Macro Menu
 GRTK_Text_Mounts_AddMount = "Add Mount"
 GRTK_Text_Mounts_RemoveMount = "Remove Mount"
@@ -209,6 +218,30 @@ GRTK_Text_Mounts_InfoButton_ResetList_PartFour = "Hold the shift key while click
 
 
 
+-- Combat Lockdown
+GRTK_Text_CombatLockdown_Startup = "Unable to update macros after log-in."
+GRTK_Text_CombatLockdown_Advance = "Unable to advance the list."
+GRTK_Text_CombatLockdown_Mounts = "Unable to update mount macro."
+GRTK_Text_CombatLockdown_Hearthstone = "Unable to update hearthstone macro."
+GRTK_Text_CombatLockdown_MountMenu = "Unable to use the mount macro menu."
+GRTK_Text_CombatLockdown_Settings = "Unable to apply changes to macro."
+GRTK_Text_CombatLockdown_TryAgain = "Please re-check your settings after combat has ended and redo the change."
+GRTK_Text_CombatLockdown_MinimapButton = "The options menu couldn't be opened."
+
+GRTK_Text_CombatLockdown_Reason = "Reason"
+GRTK_Text_CombatLockdown_Combat = "You are stuck in combat."
+GRTK_Text_CombatLockdown_Encounter = "A boss encounter is in progress."
+GRTK_Text_CombatLockdown_ChallengeMode = "A challenge mode run is in progress."
+GRTK_Text_CombatLockdown_MythicPlus = "A mythic+ run is in progress."
+GRTK_Text_CombatLockdown_PvP = "A PvP match is in progress."
+
+GRTK_Text_CombatLockdown_EditMode = "Combat Lockdown Message"
+
+
+
+
+
+
 -- Other
 ---- Chat Messages
 GRTK_Text_AddonNameAbbreviated = "GRTK"
@@ -221,12 +254,6 @@ GRTK_Text_Compartment_Description_Vanilla_PartOne = "Left-click to use the talen
 GRTK_Text_RequiresReload = "Changes to this option requires a \"/reload\" or game restart."
 ---- Edit Mode
 GRTK_Text_EditMode_MessageScale = "Scale"
----- Combat Lockdown
-GRTK_Text_CombatLockdown_MinimapButton = "The options menu cannot be opened while in combat."
-GRTK_Text_CombatLockdown_Mounts = "The mount macro cannot be updated while in combat."
-GRTK_Text_CombatLockdown_Hearthstone = "The hearthstone macro cannot be updated while in combat."
-GRTK_Text_CombatLockdown_TryAgain = "Please re-check your settings after combat has ended and redo the change."
-GRTK_Text_CombatLockdown_EditMode = "Combat Lockdown Message"
 ---- Missing Player Data
 GRTK_Text_MissingCharacterName = "WARNING! Player character name could not be obtained. The add-on will use account-wide settings."
 GRTK_Text_MissingPlayerData = "WARNING! Player character data couldn't be obtained. Please reload the game interface while being in a safe situation to allow for a normal add-on loading process."

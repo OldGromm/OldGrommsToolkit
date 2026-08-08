@@ -43,9 +43,13 @@ end
 SLASH_GRTKMOUNTADVANCE1 = "/GRTKMA"
 SLASH_GRTKMOUNTADVANCE2 = "/OldGrommMountAdvance"
 SlashCmdList.GRTKMOUNTADVANCE = function()
-    GRTK_Mounts_CheckForOverrides()
-    GRTK_Macros_AdvanceListOrder("Mounts")
-    GRTK_Macros_Update("Mounts")
+    if GRTK_General_CombatCheck() == false then
+	    GRTK_Mounts_CheckForOverrides()
+        GRTK_Macros_AdvanceListOrder("Mounts")
+        GRTK_Macros_Update("Mounts")
+	else
+	    GRTK_CombatLockdown_SendMessage("Advance")
+	end
 end
 
 
@@ -54,8 +58,12 @@ end
 SLASH_GRTKHEARTHSTONE1 = "/GRTKHA"
 SLASH_GRTKHEARTHSTONE2 = "/OldGrommHearthstoneAdvance"
 SlashCmdList.GRTKHEARTHSTONE = function()
-    GRTK_Macros_AdvanceListOrder("Hearthstone")
-    GRTK_Macros_Update("Hearthstone")
+    if GRTK_General_CombatCheck() == false then
+        GRTK_Macros_AdvanceListOrder("Hearthstone")
+        GRTK_Macros_Update("Hearthstone")
+	else
+	    GRTK_CombatLockdown_SendMessage("Advance")
+	end
 end
 
 
