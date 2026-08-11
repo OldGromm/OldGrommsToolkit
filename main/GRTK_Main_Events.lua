@@ -109,3 +109,15 @@ GRTK_Event_CombatLockdown_PlayerEnteringWorld:SetScript("OnEvent", function(self
 	    GRTKDB_Cache["CombatLockdown"] = {}
 	end
 end)
+
+
+
+
+-- Talking Head
+GRTK_Event_TalkingHead_Requested = CreateFrame("Frame")
+GRTK_Event_TalkingHead_Requested:SetScript("OnEvent", function(self, event)
+    local SoundID = select(3, C_TalkingHead.GetCurrentLineInfo())
+    if GRTK_Sounds_CheckTalkingHeadSoundID(SoundID) == true then
+	    TalkingHeadFrame:CloseImmediately()
+	end
+end)

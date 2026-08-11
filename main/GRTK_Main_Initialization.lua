@@ -7,7 +7,7 @@ function GRTK_Initialization_CreateOptionsMenu()
 	GRTK_Options_CreateOptionsEntry("UseAccountWide", nil, 1, 1, true)
 	GRTK_Options_CreateOptionsEntry("Language", 1, 1, 2, GRTK_UserLanguage_Default, 7)
 	GRTK_Options_CreateOptionsEntry("Messages", nil, 1, 1, true)
-	GRTK_Options_CreateOptionsEntry("MessageColor", nil, 1, 3)
+	GRTK_Options_CreateOptionsEntry("MessageColor", nil, 1, 4)
 	GRTK_Options_CreateOptionsEntry("CombatLockdown", 5, 1, 2, 2, 8)
 	GRTK_Options_CreateOptionsEntry("MinimapButton", nil, 1, 1, true)
 	if GRTK_Compartment_Enable == true then
@@ -51,6 +51,9 @@ function GRTK_Initialization_CreateOptionsMenu()
 	GRTK_Options_CreateOptionsEntry("UseAccountWide", nil, 4, 1, true)
 	GRTK_Options_CreateOptionsEntry("Channel", nil, 4, 2, 1, 5)
 	GRTK_Options_CreateOptionsEntry("Victory", 2, 4, 2, 1, 6)
+	if GRTK_ExpansionLevel == 3 then
+	    GRTK_Options_CreateOptionsEntry("TalkingHead", nil, 4, 3, 2)
+	end
 	
 	
 	-- Mounts
@@ -99,7 +102,7 @@ function GRTK_Initialization_CreateOptionsMenu()
 			GRTK_Options_CreateOptionsEntry("ModifierMouse_Garrison", 4, 6, 2, 6, 3)
 		end
 
-        GRTK_Options_CreateOptionsEntry("Missing", nil, 6, 3)
+        GRTK_Options_CreateOptionsEntry("Missing", nil, 6, 4)
 
 		for i, v in ipairs(GRTK_Hearthstone_List) do
 		    if PlayerHasToy(v) == true then

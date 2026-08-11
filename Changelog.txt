@@ -27,3 +27,13 @@ ________________________________________________
 
 - The add-on will now only update the list order when dismounting, and edit the macro when mounting up.
   This should fix the constant combat lockdown messages when dismounting and simultaneously getting into combat.
+
+________________________________________________
+
+1.4
+
+- Added an option to hide the talking head frame.
+  You can define how many times each message should play before they're being hidden.
+  Disable the talking head feature of other add-ons to prevent overlaps.
+
+- Fixed an error caused byselecting "No Music" for the victory sound feature if no other music track was being previewed before.

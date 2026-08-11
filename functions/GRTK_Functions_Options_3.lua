@@ -139,7 +139,17 @@ function GRTK_Options_CreateOptionsEntry(input_name, input_extratooltip, input_c
 	    local GRTKTemp_Setting = Settings.RegisterAddOnSetting(GRTKTemp_OptionsCategory, GRTKTemp_Variable, GRTKTemp_VariableKey, GRTKDB_Options, Settings.VarType.Number, GRTKTemp_LocaleVariableName, input_default)
 	    GRTKTemp_Setting:SetValueChangedCallback(GRTKTemp_OnSettingChanged)
 	    Settings.CreateDropdown(GRTKTemp_OptionsCategory, GRTKTemp_Setting, GetOptions, GRTKTemp_LocaleVariableDescription)
-	elseif input_optionstype == 3 then
+    elseif input_optionstype == 3 then
+		local GRTKTemp_MinimumValue = 0
+		local GRTKTemp_MaximumValue = 10
+		local GRTKTemp_Step = 1
+	    local GRTKTemp_OnSettingChanged = _G[GRTKTemp_OnSettingsChangedName]
+		local GRTKTemp_Setting = Settings.RegisterAddOnSetting(GRTKTemp_OptionsCategory, GRTKTemp_Variable, GRTKTemp_VariableKey, GRTKDB_Options, Settings.VarType.Number, GRTKTemp_LocaleVariableName, input_default)
+		GRTKTemp_Setting:SetValueChangedCallback(GRTKTemp_OnSettingChanged)
+		local GRTKTemp_Options = Settings.CreateSliderOptions(GRTKTemp_MinimumValue, GRTKTemp_MaximumValue, GRTKTemp_Step)
+		GRTKTemp_Options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right)
+		Settings.CreateSlider(GRTKTemp_OptionsCategory, GRTKTemp_Setting, GRTKTemp_Options, GRTKTemp_LocaleVariableDescription)
+	elseif input_optionstype == 4 then
 	    local GRTKTemp_ButtonReaction = _G[GRTKTemp_OnButtonClick]
         local GRTKTemp_Initializer = CreateSettingsButtonInitializer(GRTKTemp_LocaleVariableName, GRTKTemp_LocaleVariableExtraButton, GRTKTemp_ButtonReaction, GRTKTemp_LocaleVariableDescription, false, newTagID, gameDataFunc)
         GRTKTemp_OptionsLayout:AddInitializer(GRTKTemp_Initializer)
@@ -147,7 +157,7 @@ function GRTK_Options_CreateOptionsEntry(input_name, input_extratooltip, input_c
 	end
 
 
-    if input_optionstype < 3 then
+    if input_optionstype < 4 then
         -- Mirror options entry to profiles (create entries if they don't already exist).
         GRTK_UV("Create", input_category, GRTKTemp_VariableKey, input_default)
 

@@ -168,6 +168,8 @@ function GRTK_Setup_DisableEvents()
         GRTK_Event_ToysUpdated:UnregisterEvent("LOADING_SCREEN_DISABLED")
 	elseif GRTK_ExpansionLevel == 2 then
 	    GRTK_Event_ToysUpdated:UnregisterEvent("LOADING_SCREEN_DISABLED")
+	elseif GRTK_ExpansionLevel == 3 then
+	GRTK_Event_TalkingHead_Requested:RegisterEvent("TALKINGHEAD_REQUESTED")
 	else
     end
 end

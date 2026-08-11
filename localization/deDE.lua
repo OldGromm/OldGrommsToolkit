@@ -117,6 +117,9 @@ GRTK_Text_Options_Sounds_Victory_Entry_PrideoftheSeas = "Stolz der Meere"
 
 GRTK_Text_Options_Sounds_Victory_Entry_Random = "Zufall"
 GRTK_Text_Options_Sounds_Victory_Entry_None = "Keine Musik"
+------ Talking Head
+GRTK_Text_Options_Sounds_TalkingHead_Title = "Portrait-Nachrichten"
+GRTK_Text_Options_Sounds_TalkingHead_Description = "Diese Funktion bestimmt, wie oft eine Nachricht von einem NPC mit einem Portrait (auch bekannt als \"Talking Head\") abgespielt werden soll."
 
 
 
@@ -232,7 +235,7 @@ GRTK_Text_CombatLockdown_Reason = "Grund"
 GRTK_Text_CombatLockdown_Combat = "Ihr befindet Euch inmitten eines Kampfes."
 GRTK_Text_CombatLockdown_Encounter = "Ihr befindet Euch inmitten eines Bosskampfes."
 GRTK_Text_CombatLockdown_ChallengeMode = "Der Herausforderungsmodus ist momentan aktiv."
-GRTK_Text_CombatLockdown_MythicPlus = "Ihr befindet Euch in einem Mythisch+ Szenari."
+GRTK_Text_CombatLockdown_MythicPlus = "Ihr befindet Euch in einem Mythisch+ Szenario."
 GRTK_Text_CombatLockdown_PvP = "Ihr befindet Euch in einem PvP-Szenario."
 
 GRTK_Text_CombatLockdown_EditMode = "Kampfblockade-Nachricht"

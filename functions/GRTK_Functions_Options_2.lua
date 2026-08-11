@@ -126,7 +126,10 @@ function GRTK_Options_OnSettingChanged_Sounds(setting, value)
 
             if GRTKTemp_Index == 21 then
                 GRTK_DefaultVictorySoundToggle(false)
-                StopSound(GRTK_SoundHandle, 0.0)
+                if GRTK_SoundHandle_PlayedSomeMusicBefore == false then
+                else
+                    StopSound(GRTK_SoundHandle, 0.0)	
+                end
             else
                 if GRTKTemp_Index == 20 then
                     GRTKTemp_Index = fastrandom(1, GRTKTemp_MaxRandom)
@@ -134,6 +137,7 @@ function GRTK_Options_OnSettingChanged_Sounds(setting, value)
                 GRTK_DefaultVictorySoundToggle(true)
                 GRTKTemp_SoundID = GRTK_Sounds_Victory_Entries[GRTKTemp_Index]
                 GRTK_PreviewSoundPlayer(GRTKTemp_SoundID)
+				GRTK_SoundHandle_PlayedSomeMusicBefore = true
 			end
 	    end
 

@@ -2,6 +2,7 @@
 GRTKDB_Profiles = GRTKDB_Profiles or {}
 GRTKDB_MinimapButton = GRTKDB_MinimapButton or {}
 GRTKDB_EditMode = GRTKDB_EditMode or {}
+GRTKDB_TalkingHead = GRTKDB_TalkingHead or {}
 GRTKDB_Cache = GRTKDB_Cache or {}
 GRTKDB_Cache["CombatLockdown"] = GRTKDB_Cache["CombatLockdown"] or {}
 GRTKDB_Options = {}
@@ -95,7 +96,7 @@ GRTK_RepairMessage_Frame_ScreenMessageText = {}
 
 -- Sounds
 GRTK_SoundHandle = {}
-GRTK_SoundHandle_FirstTime = false
+GRTK_SoundHandle_PlayedSomeMusicBefore = false
 GRTK_Sounds_ChannelList = { "Master", "Music", "SFX", "Ambience", "Dialog" }
 GRTK_Sounds_Victory_Entries = { 569678, 568480, 598724, 598343, 775180, 775184, 644933, 644935, 2146576, 2146606, 2167272, 2167275, 2575918, 2564880, 2564856, 1068315, 4438809, 4438817, 4438825 }
 GRTK_Sounds_Victory_RandomList_Retail = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }
