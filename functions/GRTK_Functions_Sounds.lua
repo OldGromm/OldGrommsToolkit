@@ -41,15 +41,44 @@ end
 
 
 
-function GRTK_Sounds_CheckTalkingHeadSoundID(input_soundID)
-    local GRTKTemp_Proceed = false
-
+function GRTK_Sounds_UpdateTalkingHeadRecords(input_soundID)
     if GRTKDB_TalkingHead[input_soundID] == nil then
         GRTKDB_TalkingHead[input_soundID] = 1
 	else
 	    GRTKDB_TalkingHead[input_soundID] = GRTKDB_TalkingHead[input_soundID] + 1
     end
-	
+end
+
+
+
+
+function GRTK_Sounds_CheckTalkingHeadSoundID(input_soundID, input_difficultyID, input_instancetype)
+    local GRTKTemp_Proceed = false
+
+	if GRTK_UV("Load", 4, "Sounds_TalkingHeadDungeons") == true then
+	    if input_instancetype == "party" then
+		    GRTKTemp_Proceed = true
+		end
+	end
+
+	if GRTK_UV("Load", 4, "Sounds_TalkingHeadMythicPlus") == true then
+	    if input_difficultyID == 8 then
+		    GRTKTemp_Proceed = true
+		end
+	end
+
+	if GRTK_UV("Load", 4, "Sounds_TalkingHeadMRaids") == true then
+	    if input_instancetype == "raid" then
+		    GRTKTemp_Proceed = true
+		end
+	end
+
+	if GRTK_UV("Load", 4, "Sounds_TalkingHeadPvP") == true then
+	    if input_instancetype == "arena" or input_instancetype == "pvp" then
+		    GRTKTemp_Proceed = true
+		end
+	end
+
 	if GRTKDB_TalkingHead[input_soundID] > GRTK_UV("Load", 4, "Sounds_TalkingHead") then
 	    GRTKTemp_Proceed = true
 	end

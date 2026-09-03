@@ -95,3 +95,55 @@ function GRTK_Hearthstone_CheckCooldown()
     	end
     end)
 end
+
+
+
+-- Prevent two special hearthstones from having the same modifier keyboard keys.
+function GRTK_Hearthstone_CheckSpecialHearthstones(input_modifiertype, input_resetvalue, input_variable, input_value)
+    local GRTKTemp_Proceed = false
+    local GRTKTemp_Dalaran = GRTK_UV("Load", 6, ("Hearthstone_"..input_modifiertype.."_Dalaran"))
+    local GRTKTemp_Garrison = GRTK_UV("Load", 6, ("Hearthstone_"..input_modifiertype.."_Garrison"))
+    local GRTKTemp_Arcantina = GRTK_UV("Load", 6, ("Hearthstone_"..input_modifiertype.."_Arcantina"))
+
+    if GRTKTemp_Dalaran == GRTKTemp_Garrison then
+	    GRTKTemp_Proceed = true
+	    if input_variable == ("Hearthstone_"..input_modifiertype.."_Dalaran") then
+		    GRTKTemp_Dalaran = input_value
+			GRTKTemp_Garrison = input_resetvalue
+		elseif input_variable == ("Hearthstone_"..input_modifiertype.."_Garrison") then
+		    GRTKTemp_Dalaran = input_resetvalue
+			GRTKTemp_Garrison = input_value
+		end
+	end
+
+    if GRTKTemp_Dalaran == GRTKTemp_Arcantina then
+	    GRTKTemp_Proceed = true
+	    if input_variable == ("Hearthstone_"..input_modifiertype.."_Dalaran") then
+		    GRTKTemp_Dalaran = input_value
+			GRTKTemp_Arcantina = input_resetvalue
+		elseif input_variable == ("Hearthstone_"..input_modifiertype.."_Arcantina") then
+		    GRTKTemp_Dalaran = input_resetvalue
+			GRTKTemp_Arcantina = input_value
+		end
+	end
+
+    if GRTKTemp_Garrison == GRTKTemp_Arcantina then
+	    GRTKTemp_Proceed = true
+	    if input_variable == ("Hearthstone_"..input_modifiertype.."_Garrison") then
+		    GRTKTemp_Garrison = input_value
+		    GRTKTemp_Arcantina = input_resetvalue
+		elseif input_variable == ("Hearthstone_"..input_modifiertype.."_Arcantina") then
+		    GRTKTemp_Garrison = input_resetvalue
+		    GRTKTemp_Arcantina = input_value
+		end
+	end
+	
+	if GRTKTemp_Proceed == true then
+	    Settings.SetValue(("GRTK_Options_Hearthstone_"..input_modifiertype.."_Dalaran"), GRTKTemp_Dalaran, true)
+		Settings.SetValue(("GRTK_Options_Hearthstone_"..input_modifiertype.."_Garrison"), GRTKTemp_Garrison, true)
+		Settings.SetValue(("GRTK_Options_Hearthstone_"..input_modifiertype.."_Arcantina"), GRTKTemp_Arcantina, true)
+		GRTK_UV("Set", 6, ("Hearthstone_"..input_modifiertype.."_Dalaran"), GRTKTemp_Dalaran)
+		GRTK_UV("Set", 6, ("Hearthstone_"..input_modifiertype.."_Garrison"), GRTKTemp_Garrison)
+		GRTK_UV("Set", 6, ("Hearthstone_"..input_modifiertype.."_Arcantina"), GRTKTemp_Arcantina)
+	end
+end

@@ -93,9 +93,12 @@ function GRTK_Options_OnSettingChanged_RepairMessage(setting, value)
         GRTK_Options_Timeout = true
         GRTK_UV("Set", 3, setting.variableKey, value)
 
-		if setting.variableKey == "RepairMessage_Sound" then
+		if setting.variableKey == "RepairMessage_Enabled" then
+            GRTK_Setup_UpdateEventRegistration()
+		elseif setting.variableKey == "RepairMessage_Sound" then
 			local GRTKTemp_SoundID = GRTK_RepairMessage_SoundEntries[value]
 		    GRTK_PreviewSoundPlayer(GRTKTemp_SoundID)
+		else
 		end
 
 	    RunNextFrame(function() GRTK_Options_Timeout = false end)
@@ -139,6 +142,7 @@ function GRTK_Options_OnSettingChanged_Sounds(setting, value)
                 GRTK_PreviewSoundPlayer(GRTKTemp_SoundID)
 				GRTK_SoundHandle_PlayedSomeMusicBefore = true
 			end
+			GRTK_Setup_UpdateEventRegistration()
 	    end
 
 	    RunNextFrame(function() GRTK_Options_Timeout = false end)
@@ -152,6 +156,10 @@ function GRTK_Options_OnSettingChanged_Mounts(setting, value)
 	if GRTK_Options_Timeout == false then
         GRTK_Options_Timeout = true
         GRTK_UV("Set", 5, setting.variableKey, value)
+
+        if setting.variableKey == "Mounts_Enabled" then
+            GRTK_Setup_UpdateEventRegistration()
+        end
 
 		local GRTKTemp_MountsEnabled = GRTK_UV("Load", 5, "Mounts_Enabled")
 		if GRTKTemp_MountsEnabled == false then
@@ -188,6 +196,7 @@ function GRTK_Options_OnSettingChanged_Hearthstone(setting, value)
         GRTK_UV("Set", 6, setting.variableKey, value)
 
         if setting.variableKey == "Hearthstone_Enabled" then
+		    GRTK_Setup_UpdateEventRegistration()
 		    if value == false then
 		        if GRTK_General_CombatCheck() == false then
                     GRTK_Macros_Delete("Hearthstone")
@@ -205,6 +214,21 @@ function GRTK_Options_OnSettingChanged_Hearthstone(setting, value)
 		    local GRTKTemp_VariableName = ("Hearthstone_ToyID_"..tostring(v))
 		    if GRTKTemp_VariableName == setting.variableKey then
 			    GRTK_Hearthstone_GenerateNewList()
+			end
+		end
+
+        -- check special hearthstones modifier keys and prevent identical keybinds.
+		local HearthstoneList = {"Dalaran", "Garrison", "Arcantina"}
+		for i, v in ipairs(HearthstoneList) do
+		    local HearthstoneVariable = ("Hearthstone_ModifierButton_"..v)
+			if setting.variableKey == HearthstoneVariable then
+			    GRTK_Hearthstone_CheckSpecialHearthstones("ModifierButton", 4, setting.variableKey, value)
+			end
+		end
+		for i, v in ipairs(HearthstoneList) do
+		    local HearthstoneVariable = ("Hearthstone_ModifierMouse_"..v)
+			if setting.variableKey == HearthstoneVariable then
+			    GRTK_Hearthstone_CheckSpecialHearthstones("ModifierMouse", 6, setting.variableKey, value)
 			end
 		end
 

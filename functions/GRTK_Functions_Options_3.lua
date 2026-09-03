@@ -9,6 +9,7 @@ function GRTK_Options_CreateOptionsEntry(input_name, input_extratooltip, input_c
 	local GRTKTemp_OptionsLayout = _G["GRTK_Options_Layout_Sub_"..GRTKTemp_Category]
     local GRTKTemp_OnSettingsChangedName = ("GRTK_Options_OnSettingChanged_"..GRTKTemp_Category)
 	local GRTKTemp_OnButtonClick = ("GRTK_Options_OnButtonClick_"..GRTKTemp_VariableKey)
+    local GRTKTemp_SubCategoryTitle = _G["GRTK_Text_Options_SubCategory_"..input_name]
 
     -- perform special actions if this is either a SpecChange list or Hearthstone list.
     if input_iconID == nil then
@@ -39,6 +40,8 @@ function GRTK_Options_CreateOptionsEntry(input_name, input_extratooltip, input_c
         GRTKTemp_LocaleVariableDescription = (GRTKTemp_LocaleVariableDescription.."\n\n".."("..GRTK_Text_Options_ModifierNote_Above..")".."\n\n".."("..GRTK_Text_Options_ModifierNote_Disable..")")
     elseif input_extratooltip == 5 then
         GRTKTemp_LocaleVariableDescription = (GRTKTemp_LocaleVariableDescription.."\n\n".."("..GRTK_Text_Options_General_CombatLockdown_Description_PartTwo..")")
+    elseif input_extratooltip == 6 then
+        GRTKTemp_LocaleVariableDescription = (GRTKTemp_LocaleVariableDescription.."\n\n".."("..GRTK_Text_Options_Sounds_TalkingHeadMythicPlus_Description_PartTwo..")")
 	else
     end
 
@@ -51,9 +54,8 @@ function GRTK_Options_CreateOptionsEntry(input_name, input_extratooltip, input_c
 	end
 
 
-	    local function GetOptions()
-            local container = Settings.CreateControlTextContainer()
-
+    local function GetOptions()
+        local container = Settings.CreateControlTextContainer()
             if input_dropdownID == 1 then
                 container:Add(1, GRTK_Text_Options_SelectionType1)
                 container:Add(2, GRTK_Text_Options_SelectionType2)
@@ -123,9 +125,8 @@ function GRTK_Options_CreateOptionsEntry(input_name, input_extratooltip, input_c
                 container:Add(3, GRTK_Text_Options_General_CombatLockdown_Always)
 			else
 			end
-
-            return container:GetData()
-        end
+        return container:GetData()
+    end
 
 
     -- create a different options type depending on the type (checkbox, dropdown, checkbox with button)
@@ -153,6 +154,8 @@ function GRTK_Options_CreateOptionsEntry(input_name, input_extratooltip, input_c
 	    local GRTKTemp_ButtonReaction = _G[GRTKTemp_OnButtonClick]
         local GRTKTemp_Initializer = CreateSettingsButtonInitializer(GRTKTemp_LocaleVariableName, GRTKTemp_LocaleVariableExtraButton, GRTKTemp_ButtonReaction, GRTKTemp_LocaleVariableDescription, false, newTagID, gameDataFunc)
         GRTKTemp_OptionsLayout:AddInitializer(GRTKTemp_Initializer)
+	elseif input_optionstype == 5 then
+	    GRTKTemp_OptionsLayout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GRTKTemp_SubCategoryTitle))
 	else
 	end
 
@@ -168,4 +171,5 @@ function GRTK_Options_CreateOptionsEntry(input_name, input_extratooltip, input_c
 	        GRTK_AddOptionsVariableNameToList(input_category, GRTKTemp_VariableKey)
 		end
 	end
+
 end

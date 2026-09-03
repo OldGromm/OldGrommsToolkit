@@ -157,21 +157,61 @@ end
 
 
 
--- disable certain events from triggering if the current version of the game doesn't use the function at all. 
-function GRTK_Setup_DisableEvents()
-    if GRTK_ExpansionLevel == 1 then
-	    GRTK_Event_Sound_ChallengeModeCompleted:UnregisterEvent("CHALLENGE_MODE_COMPLETED")
-        GRTK_Event_Mounts_PlayerIsUnderwater:UnregisterEvent("MIRROR_TIMER_START")
-		GRTK_Event_Mounts_MountSummon:UnregisterEvent("PLAYER_MOUNT_DISPLAY_CHANGED")
-		GRTK_Event_Mounts_ZoneChange:UnregisterEvent("PLAYER_ENTERING_WORLD")
-        GRTK_Event_Mounts_ZoneChange:UnregisterEvent("ZONE_CHANGED_NEW_AREA")
-        GRTK_Event_ToysUpdated:UnregisterEvent("LOADING_SCREEN_DISABLED")
-	elseif GRTK_ExpansionLevel == 2 then
-	    GRTK_Event_ToysUpdated:UnregisterEvent("LOADING_SCREEN_DISABLED")
-	elseif GRTK_ExpansionLevel == 3 then
-	GRTK_Event_TalkingHead_Requested:RegisterEvent("TALKINGHEAD_REQUESTED")
-	else
-    end
+-- Enable/disable certain events from triggering. 
+function GRTK_Setup_UpdateEventRegistration()
+
+    -- Repair Message
+    if GRTK_UV("Load", 3, "RepairMessage_Enabled") == true then
+	    GRTK_Event_RepairMessage_ZoneChange:RegisterEvent("PLAYER_ENTERING_WORLD")
+        GRTK_Event_RepairMessage_ZoneChange:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+		GRTK_Event_RepairMessage_PlayerUnghost:RegisterEvent("PLAYER_UNGHOST")
+    else
+	    GRTK_Event_RepairMessage_ZoneChange:UnregisterEvent("PLAYER_ENTERING_WORLD")
+        GRTK_Event_RepairMessage_ZoneChange:UnregisterEvent("ZONE_CHANGED_NEW_AREA")
+		GRTK_Event_RepairMessage_PlayerUnghost:UnregisterEvent("PLAYER_UNGHOST")
+	end
+
+    -- Sounds (Victory)
+    if GRTK_UV("Load", 4, "Sounds_Victory") == true then
+	    GRTK_Event_Sound_EncounterEnd:RegisterEvent("ENCOUNTER_END")
+		if GRTK_ExpansionLevel > 1 then
+		    GRTK_Event_Sound_ChallengeModeCompleted:RegisterEvent("CHALLENGE_MODE_COMPLETED")
+		end
+    else
+	    GRTK_Event_Sound_EncounterEnd:UnregisterEvent("ENCOUNTER_END")
+		if GRTK_ExpansionLevel > 1 then
+		    GRTK_Event_Sound_ChallengeModeCompleted:UnregisterEvent("CHALLENGE_MODE_COMPLETED")
+		end
+	end
+
+    -- Sounds (Talking Head)
+	if GRTK_ExpansionLevel == 3 then
+	    GRTK_Event_TalkingHead_Requested:RegisterEvent("TALKINGHEAD_REQUESTED")
+	end
+
+    -- Mounts
+	if GRTK_ExpansionLevel > 1 then
+        if GRTK_UV("Load", 6, "Hearthstone_Enabled") == true then
+	        GRTK_Event_Mounts_PlayerIsUnderwater:RegisterEvent("MIRROR_TIMER_START")
+			GRTK_Event_Mounts_MountSummon:RegisterEvent("PLAYER_MOUNT_DISPLAY_CHANGED")
+			GRTK_Event_Mounts_ZoneChange:RegisterEvent("PLAYER_ENTERING_WORLD")
+            GRTK_Event_Mounts_ZoneChange:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+        else
+	        GRTK_Event_Mounts_PlayerIsUnderwater:UnregisterEvent("MIRROR_TIMER_START")
+			GRTK_Event_Mounts_MountSummon:UnregisterEvent("PLAYER_MOUNT_DISPLAY_CHANGED")
+			GRTK_Event_Mounts_ZoneChange:UnregisterEvent("PLAYER_ENTERING_WORLD")
+            GRTK_Event_Mounts_ZoneChange:UnregisterEvent("ZONE_CHANGED_NEW_AREA")
+	    end
+	end
+
+    -- Hearthstone
+	if GRTK_ExpansionLevel == 3 then
+        if GRTK_UV("Load", 5, "Mounts_Enabled") == true then
+	        GRTK_Event_ToysUpdated:RegisterEvent("LOADING_SCREEN_DISABLED")
+        else
+	        GRTK_Event_ToysUpdated:UnregisterEvent("LOADING_SCREEN_DISABLED")
+	    end
+	end
 end
 
 

@@ -11,6 +11,9 @@ GRTK_Text_Options_Category_Sounds = "Sounds"
 GRTK_Text_Options_Category_Mounts = "Mount Macro"
 GRTK_Text_Options_Category_Hearthstone = "Hearthstone Macro"
 
+GRTK_Text_Options_SubCategory_CombatVictory = "End-of-Combat Victory Theme"
+GRTK_Text_Options_SubCategory_TalkingHead = "Talking Head"
+
 
 
 ---- All
@@ -120,6 +123,15 @@ GRTK_Text_Options_Sounds_Victory_Entry_None = "No Music"
 ------ Talking Head
 GRTK_Text_Options_Sounds_TalkingHead_Title = "Talking Head Frequency"
 GRTK_Text_Options_Sounds_TalkingHead_Description = "Determines how often each talking head message should play before being blocked."
+GRTK_Text_Options_Sounds_TalkingHeadDungeons_Title = "Block in Dungeons"
+GRTK_Text_Options_Sounds_TalkingHeadDungeons_Description = "Block all talking head messages while being inside a dungeon."
+GRTK_Text_Options_Sounds_TalkingHeadMythicPlus_Title = "Block in Mythic+"
+GRTK_Text_Options_Sounds_TalkingHeadMythicPlus_Description = "Block all talking head messages during a mythic+ run."
+GRTK_Text_Options_Sounds_TalkingHeadMythicPlus_Description_PartTwo = "Messages in a regular dungeon are still being displayed."
+GRTK_Text_Options_Sounds_TalkingHeadMRaids_Title = "Block in Raids"
+GRTK_Text_Options_Sounds_TalkingHeadMRaids_Description = "Block all talking head messages while being inside a raid."
+GRTK_Text_Options_Sounds_TalkingHeadPvP_Title = "Block in PvP"
+GRTK_Text_Options_Sounds_TalkingHeadPvP_Description = "Block all talking head messages while being in a PvP scenario (arena, battleground)."
 
 
 
@@ -166,6 +178,10 @@ GRTK_Text_Options_Hearthstone_ModifierButton_Garrison_Title = "Garrison Modifier
 GRTK_Text_Options_Hearthstone_ModifierButton_Garrison_Description = "Changes the modifier key used to activate the Garrison hearthstone."
 GRTK_Text_Options_Hearthstone_ModifierMouse_Garrison_Title = "Garrison Modifier (Button)"
 GRTK_Text_Options_Hearthstone_ModifierMouse_Garrison_Description = "Changes the modifier mouse button used to activate the Garrison hearthstone."
+GRTK_Text_Options_Hearthstone_ModifierButton_Arcantina_Title = "Arcantina Modifier (Key)"
+GRTK_Text_Options_Hearthstone_ModifierButton_Arcantina_Description = "Changes the modifier key used to activate the Key to the Arcantina."
+GRTK_Text_Options_Hearthstone_ModifierMouse_Arcantina_Title = "Arcantina Modifier (Button)"
+GRTK_Text_Options_Hearthstone_ModifierMouse_Arcantina_Description = "Changes the modifier mouse button used to activate the Key to the Arcantina."
 
 GRTK_Text_Options_Hearthstone_Missing_Title = "Check Missing Hearthstones"
 GRTK_Text_Options_Hearthstone_Missing_Description = "Lists all missing hearthstones in the chat window."

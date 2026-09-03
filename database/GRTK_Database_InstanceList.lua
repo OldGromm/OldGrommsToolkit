@@ -69,6 +69,7 @@ GRTK_InstanceData["Timeways"] = { 2678 }
 ------ 2521 / Ruby Life Pools
 
 ---- Raids
+------ 2987 / The Tidebound Grotto
 ------ 3004 / Venomous Abyss
 
 ---- Delves
@@ -78,7 +79,7 @@ GRTK_InstanceData["Timeways"] = { 2678 }
 ------ 3079 / Venomfall Deeps
 
 GRTK_InstanceData["Midnight_Dungeons"] = { 2805, 2811, 2813, 2825, 2859, 2874, 2915, 2923, 2993 }
-GRTK_InstanceData["Midnight_Raids"] = { 1592, 2912, 2913, 2939, 3004 }
+GRTK_InstanceData["Midnight_Raids"] = { 1592, 2912, 2913, 2939, 2987, 3004 }
 GRTK_InstanceData["Midnight_Delves"] = { 2933, 2952, 2953, 2961, 2962, 2963, 2964, 2965, 2966, 2979, 3003, 3038, 3077, 3079}
 GRTK_InstanceData["Midnight_Other"] = { 3014, 3047, 3074, 3075 }
 GRTK_InstanceData["Midnight_Season1"] = { 658, 1209, 1753, 2526 }

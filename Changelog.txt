@@ -37,3 +37,16 @@ ________________________________________________
   Disable the talking head feature of other add-ons to prevent overlaps.
 
 - Fixed an error caused byselecting "No Music" for the victory sound feature if no other music track was being previewed before.
+
+________________________________________________
+
+1.5
+
+- Added "Tidebound Grotto" to the list of instances to check for the Repair Message feature.
+
+- Added "Hearthkeeper's Wandering Caravan" to the list of special mounts for the Mount Macro feature.
+
+- Added "Personal Key to the Arcantina" as a special option for the hearthstone macro.
+
+- The talking head frame can now be hidden depending on the instance type (dungeons, raid, PvP).
+  Additionally, it can also be hidden during mythic+ runs-only (the dungeon option will hide it in both regular and m+ scenarios).

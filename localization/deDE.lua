@@ -11,6 +11,9 @@ GRTK_Text_Options_Category_Sounds = "Soundeffekte"
 GRTK_Text_Options_Category_Mounts = "Reittier-Makro"
 GRTK_Text_Options_Category_Hearthstone = "Ruhesteine-Makro"
 
+GRTK_Text_Options_SubCategory_CombatVictory = "Musik am Ende eines erfolgreichen Kampfes"
+GRTK_Text_Options_SubCategory_TalkingHead = "Portrait-Nachrichten"
+
 
 
 ---- All
@@ -119,13 +122,22 @@ GRTK_Text_Options_Sounds_Victory_Entry_Random = "Zufall"
 GRTK_Text_Options_Sounds_Victory_Entry_None = "Keine Musik"
 ------ Talking Head
 GRTK_Text_Options_Sounds_TalkingHead_Title = "Portrait-Nachrichten"
-GRTK_Text_Options_Sounds_TalkingHead_Description = "Diese Funktion bestimmt, wie oft eine Nachricht von einem NPC mit einem Portrait (auch bekannt als \"Talking Head\") abgespielt werden soll."
+GRTK_Text_Options_Sounds_TalkingHead_Description = "Diese Funktion bestimmt, wie oft eine Nachricht von einem NPC mit einem Portrait (auch bekannt als \"Talking Head\") abgespielt werden soll, bevor sie geblockt wird."
+GRTK_Text_Options_Sounds_TalkingHeadDungeons_Title = "In Dungeons Blockieren"
+GRTK_Text_Options_Sounds_TalkingHeadDungeons_Description = "Blockiert alle Portrait-Nachrichten, wenn Ihr euch innnerhalb eines Dungeons befindet."
+GRTK_Text_Options_Sounds_TalkingHeadMythicPlus_Title = "In Mythisch+ Blockieren"
+GRTK_Text_Options_Sounds_TalkingHeadMythicPlus_Description = "Blockiert alle Portrait-Nachrichten, wenn ein Mythisch+ Szenario aktiv ist."
+GRTK_Text_Options_Sounds_TalkingHeadMythicPlus_Description_PartTwo = "Nachrichten in regulären Dungeons werden weiterhin angezeigt."
+GRTK_Text_Options_Sounds_TalkingHeadMRaids_Title = "In Raids Blockieren"
+GRTK_Text_Options_Sounds_TalkingHeadMRaids_Description = "Blockiert alle Portrait-Nachrichten, wenn Ihr euch innnerhalb eines Raids befindet."
+GRTK_Text_Options_Sounds_TalkingHeadPvP_Title = "In PvP-Szenarios Blockieren"
+GRTK_Text_Options_Sounds_TalkingHeadPvP_Description = "Blockiert alle Portrait-Nachrichten, wenn Ihr euch innnerhalb eines PvP-Szenarios (Arena, Schlachtfeld) befindet."
 
 
 
 ---- Mount Macro
-GRTK_Text_Options_Mounts_Enabled_Title = "Makro erstellen/löschen"
-GRTK_Text_Options_Mounts_Enabled_Description = "Erstellt ein Makro oder löscht es."
+GRTK_Text_Options_Mounts_Enabled_Title = "Reittier-Makro erstellen"
+GRTK_Text_Options_Mounts_Enabled_Description = "Wenn diese Funktion aktiviert ist, wird das Reittier-Makro automatisch erstellt. Ansonsten wird das Makro gelöscht."
 
 GRTK_Text_Options_Mounts_Ground_OrderType_Title = "Bearbeitungsart (Boden)"
 GRTK_Text_Options_Mounts_Ground_OrderType_Description = "Bestimmt, auf welche Art und Weise das Add-on die \"Boden\"-Liste abarbeitet."
@@ -153,19 +165,23 @@ GRTK_Text_Options_Mounts_Dracthyr_Description = "Es wird \"Segeln\" anstatt eine
 
 
 ---- Hearthstone Macro
-GRTK_Text_Options_Hearthstone_Enabled_Title = "Makro erstellen/löschen"
-GRTK_Text_Options_Hearthstone_Enabled_Description = "Erstellt ein Makro oder löscht es."
+GRTK_Text_Options_Hearthstone_Enabled_Title = "Ruhesteine-Makro erstellen"
+GRTK_Text_Options_Hearthstone_Enabled_Description = "Wenn diese Funktion aktiviert ist, wird das Ruhesteine-Makro automatisch erstellt. Ansonsten wird das Makro gelöscht."
 GRTK_Text_Options_Hearthstone_OrderType_Title = "Bearbeitungsart ändern"
 GRTK_Text_Options_Hearthstone_OrderType_Description = "Bestimmt, auf welche Art und Weise das Add-on die Ruhesteine-Liste abarbeitet."
 
 GRTK_Text_Options_Hearthstone_ModifierButton_Dalaran_Title = "Dalaran-Modifizierer (Taste)"
-GRTK_Text_Options_Hearthstone_ModifierButton_Dalaran_Description = "Ändert den Maustbutton, der zuzüglich benutzt werden muss, um den Dalaranruhestein zu verwenden."
+GRTK_Text_Options_Hearthstone_ModifierButton_Dalaran_Description = "Ändert die Modifier-Taste die zuzüglich benutzt werden muss, um den Dalaranruhestein zu verwenden."
 GRTK_Text_Options_Hearthstone_ModifierMouse_Dalaran_Title = "Dalaran-Modifizierer (Maus)"
-GRTK_Text_Options_Hearthstone_ModifierMouse_Dalaran_Description = "Ändert den Maustbutton, der zuzüglich benutzt werden muss, um den Dalaranruhestein zu verwenden."
+GRTK_Text_Options_Hearthstone_ModifierMouse_Dalaran_Description = "Ändert die Maustaste die zuzüglich benutzt werden muss, um den Dalaranruhestein zu verwenden."
 GRTK_Text_Options_Hearthstone_ModifierButton_Garrison_Title = "Garnison-Modifizierer (Taste)"
-GRTK_Text_Options_Hearthstone_ModifierButton_Garrison_Description = "Ändert den Maustbutton, der zuzüglich benutzt werden muss, um den Garnisonsruhestein zu verwenden."
+GRTK_Text_Options_Hearthstone_ModifierButton_Garrison_Description = "Ändert die Modifier-Taste die zuzüglich benutzt werden muss, um den Garnisonsruhestein zu verwenden."
 GRTK_Text_Options_Hearthstone_ModifierMouse_Garrison_Title = "Garnison-Modifizierer (Maus)"
-GRTK_Text_Options_Hearthstone_ModifierMouse_Garrison_Description = "Ändert den Maustbutton, der zuzüglich benutzt werden muss, um den Garnisonsruhestein zu verwenden."
+GRTK_Text_Options_Hearthstone_ModifierMouse_Garrison_Description = "Ändert die Maustaste die zuzüglich benutzt werden muss, um den Garnisonsruhestein zu verwenden."
+GRTK_Text_Options_Hearthstone_ModifierButton_Arcantina_Title = "Arkantine-Modifizierer (Taste)"
+GRTK_Text_Options_Hearthstone_ModifierButton_Arcantina_Description = "Ändert die Modifier-Taste die zuzüglich benutzt werden muss, um den Schlüssel zur Arkantine zu verwenden."
+GRTK_Text_Options_Hearthstone_ModifierMouse_Arcantina_Title = "Arkantine-Modifizierer (Maus)"
+GRTK_Text_Options_Hearthstone_ModifierMouse_Arcantina_Description = "Ändert die Maustaste die zuzüglich benutzt werden muss, um den Schlüssel zur Arkantine zu verwenden."
 
 GRTK_Text_Options_Hearthstone_Missing_Title = "Fehlende Ruhesteine anzeigen"
 GRTK_Text_Options_Hearthstone_Missing_Description = "Listet alle fehlenden Ruhesteine-Spielzeuge im Chatfenster auf."

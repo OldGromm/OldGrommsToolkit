@@ -69,11 +69,16 @@ end
 
 
 
-function GRTK_RepairMessage_Begin()
+function GRTK_RepairMessage_Begin(input_type)
     if GRTK_UV("Load", 3, "RepairMessage_Enabled") == true then
         if GRTK_RepairMessage_OneProcessAlreadyRunning == false then
 	        GRTK_RepairMessage_OneProcessAlreadyRunning = true
-		    GRTK_RepairMessage_CheckCurrentLocation()
+		    if input_type == "newzone" then
+                GRTK_RepairMessage_CheckCurrentLocation()
+			elseif input_type == "playerrevive" then
+                GRTK_RepairMessage_CheckDurability()
+			else
+			end
 	    end
 	end
 end

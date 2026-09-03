@@ -11,7 +11,7 @@ function GRTK_Macros_GenerateTextstring(input_type)
 	local GRTKTemp_Count = 0
 	
 	if GRTKTemp_Type == "Hearthstone" then
-	    GRTKTemp_PrefixTable = {"", "", ""}
+	    GRTKTemp_PrefixTable = {"", "", "", ""}
 		GRTKTemp_Start = "/use "
 	elseif GRTKTemp_Type == "Mounts" then
 	    GRTKTemp_PrefixTable = {" [swimming,nomod]", " [flyable,nomod]", " [nomod]", ""}
@@ -216,7 +216,7 @@ function GRTK_Macros_Update(input_type)
 	if GRTKTemp_Type == "Hearthstone" then
 	    GRTKTemp_Category = 6
 		GRTKTemp_ModifierIndex = 0
-        GRTKTemp_ModifierObject = {"Dalaran", "Garrison"}
+        GRTKTemp_ModifierObject = {"Dalaran", "Garrison", "Arcantina"}
 	elseif GRTKTemp_Type == "Mounts" then
 	    GRTKTemp_Category = 5
 		GRTKTemp_ModifierIndex = 3
@@ -283,9 +283,9 @@ function GRTK_Macros_Update(input_type)
 	if GRTKTemp_Type == "Hearthstone" then
 		local GRTKTemp_Current = GRTK_UV("Load", GRTKTemp_Category, GRTKTemp_Type.."_ChoiceCurrent")
 		if GRTKTemp_Current == nil then
-		    GRTK_MacroTextBody[input_type][3] = nil
+		    GRTK_MacroTextBody[input_type][4] = nil
 	    else
-	        GRTK_MacroTextBody[input_type][3] = ("item:"..tostring(GRTKTemp_Current))
+	        GRTK_MacroTextBody[input_type][4] = ("item:"..tostring(GRTKTemp_Current))
 	    end
     elseif GRTKTemp_Type == "Mounts" then
         local GRTKTemp_Index = 4

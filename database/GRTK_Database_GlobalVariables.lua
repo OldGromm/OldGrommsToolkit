@@ -116,7 +116,7 @@ GRTK_Mounts_MountOrderType = { "Sequence_Ground", "Sequence_Flying", "Sequence_A
 GRTK_Mounts_LockButtons = false
 GRTK_Mounts_DropdownMenu_VendorMount = ""
 GRTK_Mounts_PaladinHorseList = { 41, 84, 149, 150, 230, 230, 350, 351, 367, 368, 1225, 1568, 2233 }
-GRTK_Mounts_SpecialMountList = { 280, 284, 460, 1039, 2237, 2265 }
+GRTK_Mounts_SpecialMountList = { 280, 284, 460, 1039, 2237, 2265, 2982 }
 GRTK_Mounts_SpecialMountList_Names = {}
 GRTK_Mounts_SpecialMountList_Final = {}
 GRTK_Mounts_SpecialMountList_PlayerHasNone = false
@@ -167,7 +167,7 @@ GRTK_Hearthstone_Icon[263933] = 5929569
 GRTK_Hearthstone_Icon[264367] = 7702758
 GRTK_Hearthstone_Icon[265100] = 4914667
 
-GRTK_Hearthstone_SpecialStoneList = { 140192, 110560 }
+GRTK_Hearthstone_SpecialStoneList = { 140192, 110560, 253629 }
 GRTK_Hearthstone_Missing_List = {}
 GRTK_Hearthstone_Missing_Count = 0
 GRTK_Hearthstone_MainChoice = 0

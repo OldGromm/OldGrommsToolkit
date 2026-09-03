@@ -45,14 +45,20 @@ function GRTK_Initialization_CreateOptionsMenu()
 	GRTK_Options_CreateOptionsEntry("UseAccountWide", nil, 3, 1, true)
 	GRTK_Options_CreateOptionsEntry("Enabled", nil, 3, 1, true)
 	GRTK_Options_CreateOptionsEntry("Sound", 2, 3, 2, 1, 4)
-	
+
 
 	-- Sounds
 	GRTK_Options_CreateOptionsEntry("UseAccountWide", nil, 4, 1, true)
+	GRTK_Options_CreateOptionsEntry("CombatVictory", nil, 4, 5)
 	GRTK_Options_CreateOptionsEntry("Channel", nil, 4, 2, 1, 5)
 	GRTK_Options_CreateOptionsEntry("Victory", 2, 4, 2, 1, 6)
+	GRTK_Options_CreateOptionsEntry("TalkingHead", nil, 4, 5)
 	if GRTK_ExpansionLevel == 3 then
 	    GRTK_Options_CreateOptionsEntry("TalkingHead", nil, 4, 3, 2)
+		GRTK_Options_CreateOptionsEntry("TalkingHeadDungeons", nil, 4, 1, false)
+		GRTK_Options_CreateOptionsEntry("TalkingHeadMythicPlus", 6, 4, 1, true)
+		GRTK_Options_CreateOptionsEntry("TalkingHeadMRaids", nil, 4, 1, false)
+		GRTK_Options_CreateOptionsEntry("TalkingHeadPvP", nil, 4, 1, false)
 	end
 	
 	
@@ -100,6 +106,10 @@ function GRTK_Initialization_CreateOptionsMenu()
 		if GRTK_Setup_GarrisonUnlocked() == true then
 		    GRTK_Options_CreateOptionsEntry("ModifierButton_Garrison", 3, 6, 2, 2, 2)
 			GRTK_Options_CreateOptionsEntry("ModifierMouse_Garrison", 4, 6, 2, 6, 3)
+		end
+		if PlayerHasToy(253629) == true then
+		    GRTK_Options_CreateOptionsEntry("ModifierButton_Arcantina", 3, 6, 2, 4, 2)
+			GRTK_Options_CreateOptionsEntry("ModifierMouse_Arcantina", 4, 6, 2, 6, 3)
 		end
 
         GRTK_Options_CreateOptionsEntry("Missing", nil, 6, 4)
@@ -182,10 +192,8 @@ GRTK_Event_Setup_PlayerLogin:SetScript("OnEvent", function(_, event)
 	        end
 			
 
-
-
-            -- disable certain events for older versions of the game
-            GRTK_Setup_DisableEvents()
+			-- enable or disable events depending on player settings (also depending on  the game version).
+            GRTK_Setup_UpdateEventRegistration()
 
 
             -- create minimap button
