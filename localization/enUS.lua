@@ -121,6 +121,8 @@ GRTK_Text_Options_Sounds_Victory_Entry_PrideoftheSeas = "Pride of the Seas"
 GRTK_Text_Options_Sounds_Victory_Entry_Random = "Random"
 GRTK_Text_Options_Sounds_Victory_Entry_None = "No Music"
 ------ Talking Head
+GRTK_Text_Options_Sounds_TalkingHeadEnabled_Title = "Activate Talking Head Feature"
+GRTK_Text_Options_Sounds_TalkingHeadEnabled_Description = "Activates the talking head feature."
 GRTK_Text_Options_Sounds_TalkingHead_Title = "Talking Head Frequency"
 GRTK_Text_Options_Sounds_TalkingHead_Description = "Determines how often each talking head message should play before being blocked."
 GRTK_Text_Options_Sounds_TalkingHeadDungeons_Title = "Block in Dungeons"

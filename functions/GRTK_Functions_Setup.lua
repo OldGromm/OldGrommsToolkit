@@ -172,21 +172,25 @@ function GRTK_Setup_UpdateEventRegistration()
 	end
 
     -- Sounds (Victory)
-    if GRTK_UV("Load", 4, "Sounds_Victory") == true then
-	    GRTK_Event_Sound_EncounterEnd:RegisterEvent("ENCOUNTER_END")
-		if GRTK_ExpansionLevel > 1 then
-		    GRTK_Event_Sound_ChallengeModeCompleted:RegisterEvent("CHALLENGE_MODE_COMPLETED")
-		end
-    else
+    if GRTK_UV("Load", 4, "Sounds_Victory") == 21 then
 	    GRTK_Event_Sound_EncounterEnd:UnregisterEvent("ENCOUNTER_END")
 		if GRTK_ExpansionLevel > 1 then
 		    GRTK_Event_Sound_ChallengeModeCompleted:UnregisterEvent("CHALLENGE_MODE_COMPLETED")
+		end
+    else
+	    GRTK_Event_Sound_EncounterEnd:RegisterEvent("ENCOUNTER_END")
+		if GRTK_ExpansionLevel > 1 then
+		    GRTK_Event_Sound_ChallengeModeCompleted:RegisterEvent("CHALLENGE_MODE_COMPLETED")
 		end
 	end
 
     -- Sounds (Talking Head)
 	if GRTK_ExpansionLevel == 3 then
-	    GRTK_Event_TalkingHead_Requested:RegisterEvent("TALKINGHEAD_REQUESTED")
+	    if GRTK_UV("Load", 4, "Sounds_TalkingHeadEnabled") == true then
+	        GRTK_Event_TalkingHead_Requested:RegisterEvent("TALKINGHEAD_REQUESTED")
+		else
+		    GRTK_Event_TalkingHead_Requested:UnregisterEvent("TALKINGHEAD_REQUESTED")
+		end
 	end
 
     -- Mounts

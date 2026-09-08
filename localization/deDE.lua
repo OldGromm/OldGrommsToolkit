@@ -121,6 +121,8 @@ GRTK_Text_Options_Sounds_Victory_Entry_PrideoftheSeas = "Stolz der Meere"
 GRTK_Text_Options_Sounds_Victory_Entry_Random = "Zufall"
 GRTK_Text_Options_Sounds_Victory_Entry_None = "Keine Musik"
 ------ Talking Head
+GRTK_Text_Options_Sounds_TalkingHeadEnabled_Title = "Portrait-Funktion Aktivieren"
+GRTK_Text_Options_Sounds_TalkingHeadEnabled_Description = "Aktiviert die Blockadefunktion für Portrait-Nachrichten."
 GRTK_Text_Options_Sounds_TalkingHead_Title = "Portrait-Nachrichten"
 GRTK_Text_Options_Sounds_TalkingHead_Description = "Diese Funktion bestimmt, wie oft eine Nachricht von einem NPC mit einem Portrait (auch bekannt als \"Talking Head\") abgespielt werden soll, bevor sie geblockt wird."
 GRTK_Text_Options_Sounds_TalkingHeadDungeons_Title = "In Dungeons Blockieren"

@@ -142,8 +142,9 @@ function GRTK_Options_OnSettingChanged_Sounds(setting, value)
                 GRTK_PreviewSoundPlayer(GRTKTemp_SoundID)
 				GRTK_SoundHandle_PlayedSomeMusicBefore = true
 			end
-			GRTK_Setup_UpdateEventRegistration()
 	    end
+		
+		GRTK_Setup_UpdateEventRegistration()
 
 	    RunNextFrame(function() GRTK_Options_Timeout = false end)
 	end

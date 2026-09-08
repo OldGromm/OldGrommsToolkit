@@ -16,14 +16,19 @@ end)
 -- Sounds
 ---- Encounter End
 GRTK_Event_Sound_EncounterEnd = CreateFrame("Frame")
-GRTK_Event_Sound_EncounterEnd:SetScript("OnEvent", function(_, event, _, _, difficultyID, _, success)
-    if difficultyID == 8 then
+GRTK_Event_Sound_EncounterEnd:SetScript("OnEvent", function(_, event, encounterID, _, difficultyID, _, success)
+    if encounterID == 3515 then  -- Ignore the fake death of Gnok from the "The Ring of Glory" delve.
 
-    else
-        if success == 1 then
-            GRTK_PlayVictorySound()
+	else
+        if difficultyID == 8 then
+
+        else
+            if success == 1 then
+                GRTK_PlayVictorySound()
+            end
         end
-    end
+	end
+
 end)
 
 ---- Mythic+

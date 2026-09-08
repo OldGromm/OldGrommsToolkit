@@ -50,3 +50,12 @@ ________________________________________________
 
 - The talking head frame can now be hidden depending on the instance type (dungeons, raid, PvP).
   Additionally, it can also be hidden during mythic+ runs-only (the dungeon option will hide it in both regular and m+ scenarios).
+
+________________________________________________
+
+1.6
+
+- Added "Sporebearer Fungal Strider" to the list of special mounts for the Mount Macro feature.
+  (preparation for the future when the mount becomes available in patch 12.1.5)
+
+- The talking head feature can now be disabled.
