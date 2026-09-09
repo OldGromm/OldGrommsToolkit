@@ -151,7 +151,16 @@ function GRTK_Setup_GameClientVersion()
 	else
 	    GRTK_CombatLockdown_MythicPlus = {"Combat", "Encounter", "ChallengeMode", "PvP"}
 	end
-	
+
+
+	---- retrieve the zone names for the Atal'Utek check for the mount macro
+	if GRTKTemp_InterfaceVersion >= 120000 then
+	    GRTK_Mounts_AtalUtek_Main = C_Map.GetAreaInfo(16535)
+        for i, v in ipairs(GRTK_Mounts_AtalUtek_Sub_List) do
+            local GRTKTemp_ZoneName = C_Map.GetAreaInfo(v)
+            tinsert(GRTK_Mounts_AtalUtek_Sub, GRTKTemp_ZoneName)
+        end
+	end
 end
 
 
@@ -195,22 +204,26 @@ function GRTK_Setup_UpdateEventRegistration()
 
     -- Mounts
 	if GRTK_ExpansionLevel > 1 then
-        if GRTK_UV("Load", 6, "Hearthstone_Enabled") == true then
+        if GRTK_UV("Load", 5, "Mounts_Enabled") == true then
 	        GRTK_Event_Mounts_PlayerIsUnderwater:RegisterEvent("MIRROR_TIMER_START")
 			GRTK_Event_Mounts_MountSummon:RegisterEvent("PLAYER_MOUNT_DISPLAY_CHANGED")
 			GRTK_Event_Mounts_ZoneChange:RegisterEvent("PLAYER_ENTERING_WORLD")
+			GRTK_Event_Mounts_ZoneChange:RegisterEvent("ZONE_CHANGED")
             GRTK_Event_Mounts_ZoneChange:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+			GRTK_Event_Mounts_ZoneChange:RegisterEvent("ZONE_CHANGED_INDOORS")
         else
 	        GRTK_Event_Mounts_PlayerIsUnderwater:UnregisterEvent("MIRROR_TIMER_START")
 			GRTK_Event_Mounts_MountSummon:UnregisterEvent("PLAYER_MOUNT_DISPLAY_CHANGED")
 			GRTK_Event_Mounts_ZoneChange:UnregisterEvent("PLAYER_ENTERING_WORLD")
+			GRTK_Event_Mounts_ZoneChange:UnregisterEvent("ZONE_CHANGED")
             GRTK_Event_Mounts_ZoneChange:UnregisterEvent("ZONE_CHANGED_NEW_AREA")
+			GRTK_Event_Mounts_ZoneChange:UnregisterEvent("ZONE_CHANGED_INDOORS")
 	    end
 	end
 
     -- Hearthstone
 	if GRTK_ExpansionLevel == 3 then
-        if GRTK_UV("Load", 5, "Mounts_Enabled") == true then
+        if GRTK_UV("Load", 6, "Hearthstone_Enabled") == true then
 	        GRTK_Event_ToysUpdated:RegisterEvent("LOADING_SCREEN_DISABLED")
         else
 	        GRTK_Event_ToysUpdated:UnregisterEvent("LOADING_SCREEN_DISABLED")

@@ -25,6 +25,25 @@ end
 
 
 
+function GRTK_Mounts_CheckAtalUtek()
+    local GRTKTemp_Proceed = false
+    local GRTKTemp_ZoneName = GetZoneText()
+    local GRTKTemp_SubZoneName = GetSubZoneText()
+
+	if GRTKTemp_SubZoneName == GRTK_Mounts_AtalUtek_Main then
+	    for i, v in ipairs(GRTK_Mounts_AtalUtek_Sub) do
+		    if GRTKTemp_ZoneName == v then
+			    GRTKTemp_Proceed = true
+			end
+		end
+	end
+
+	return GRTKTemp_Proceed
+end
+
+
+
+
 function GRTK_Mounts_CheckForOverrides()
     -- Check for zone-specific mounts and override the player's mount choice temporarily.
 	local GRTKTemp_uiMapID = C_Map.GetBestMapForUnit("player")
@@ -49,11 +68,11 @@ function GRTK_Mounts_CheckForOverrides()
 	    GRTKTemp_ExilesReach = true
 	-- Temple of Ahn'Qiraj (Raid)
 	elseif GRTKTemp_uiMapID == 319 then
-	    GRTK_Mounts_QirajiBattleTanks()GRTK_Mounts_CheckSpecialGroundMountUnlock("Qiraji")
+	    GRTK_Mounts_CheckSpecialGroundMountUnlock("Qiraji")
 	elseif GRTKTemp_uiMapID == 320 then
-	    GRTK_Mounts_QirajiBattleTanks()GRTK_Mounts_CheckSpecialGroundMountUnlock("Qiraji")
+	    GRTK_Mounts_CheckSpecialGroundMountUnlock("Qiraji")
 	elseif GRTKTemp_uiMapID == 321 then
-	    GRTK_Mounts_QirajiBattleTanks()GRTK_Mounts_CheckSpecialGroundMountUnlock("Qiraji")
+	    GRTK_Mounts_CheckSpecialGroundMountUnlock("Qiraji")
 	-- Vashj'ir (Open-world Zone)
 	elseif GRTKTemp_uiMapID == 201 then
         GRTKTemp_UseSeahorse = true
@@ -159,4 +178,12 @@ function GRTK_Mounts_CheckForOverrides()
 		    GRTK_UV("Set", 5, "Mounts_Ground_ChoiceOverride", GRTK_Macros_FetchMountName(679))
 	    end
     end
+
+
+	---- Use a ground mount for the passageway leading from the Coiled Isle to the Vaults of Atal'Utek.
+	if GRTK_PlayerStats_CurrentClass == 11 then
+		if GRTK_Mounts_CheckAtalUtek() == true then
+	        GRTK_UV("Reset", 5, "Mounts_Ground_ChoiceOverride")
+	    end
+	end
 end

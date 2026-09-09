@@ -122,6 +122,9 @@ GRTK_Mounts_SpecialMountList_Final = {}
 GRTK_Mounts_SpecialMountList_PlayerHasNone = false
 GRTK_Mounts_Frame_MountMenu = {}
 GRTK_Mounts_Frame_MountMenu_Visibility = false
+GRTK_Mounts_AtalUtek_Main = ""
+GRTK_Mounts_AtalUtek_Sub = {}
+GRTK_Mounts_AtalUtek_Sub_List = {16785, 16786, 16791, 16789, 16535}
 
 
 

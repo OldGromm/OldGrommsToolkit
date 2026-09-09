@@ -59,3 +59,10 @@ ________________________________________________
   (preparation for the future when the mount becomes available in patch 12.1.5)
 
 - The talking head feature can now be disabled.
+
+________________________________________________
+
+1.7
+
+- The mount macro will now force a ground mount for druids who use their Travel Form,
+  if they're entering the passageway between Atal'Utek and the Coiled Isle.
