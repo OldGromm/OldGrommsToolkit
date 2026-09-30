@@ -16,7 +16,7 @@ function GRTK_Initialization_CreateOptionsMenu()
 
 
     -- Spec Change
-	if GRTK_ExpansionLevel == 3 then
+	if GRTK_WoWVersion == "Retail" then
 	    GRTK_Options_CreateOptionsEntry("UseAccountWide", nil, 2, 1, true)
 
         if GRTK_PlayerStats_CurrentClass == 11 then -- Druid
@@ -44,6 +44,7 @@ function GRTK_Initialization_CreateOptionsMenu()
 	-- Repair Message
 	GRTK_Options_CreateOptionsEntry("UseAccountWide", nil, 3, 1, true)
 	GRTK_Options_CreateOptionsEntry("Enabled", nil, 3, 1, true)
+	GRTK_Options_CreateOptionsEntry("RestingArea", nil, 3, 1, false)
 	GRTK_Options_CreateOptionsEntry("Sound", 2, 3, 2, 1, 4)
 
 
@@ -52,8 +53,8 @@ function GRTK_Initialization_CreateOptionsMenu()
 	GRTK_Options_CreateOptionsEntry("CombatVictory", nil, 4, 5)
 	GRTK_Options_CreateOptionsEntry("Channel", nil, 4, 2, 1, 5)
 	GRTK_Options_CreateOptionsEntry("Victory", 2, 4, 2, 1, 6)
-	GRTK_Options_CreateOptionsEntry("TalkingHead", nil, 4, 5)
-	if GRTK_ExpansionLevel == 3 then
+	if GRTK_WoWVersion == "Retail" then
+	    GRTK_Options_CreateOptionsEntry("TalkingHead", nil, 4, 5)
 	    GRTK_Options_CreateOptionsEntry("TalkingHeadEnabled", nil, 4, 1, false)
 		GRTK_Options_CreateOptionsEntry("TalkingHead", nil, 4, 3, 2)
 		GRTK_Options_CreateOptionsEntry("TalkingHeadDungeons", nil, 4, 1, false)
@@ -64,7 +65,7 @@ function GRTK_Initialization_CreateOptionsMenu()
 	
 	
 	-- Mounts
-	if GRTK_ExpansionLevel > 1 then
+	if GRTK_WoWVersion == "Retail" or GRTK_WoWVersion == "MoP" then
 	    GRTK_Options_CreateOptionsEntry("UseAccountWide", nil, 5, 1, false)
         GRTK_Options_CreateOptionsEntry("Enabled", nil, 5, 1, true)
         GRTK_Options_CreateOptionsEntry("Ground_OrderType", nil, 5, 2, 1, 1)
@@ -95,7 +96,7 @@ function GRTK_Initialization_CreateOptionsMenu()
 
 
 	-- Hearthstone
-	if GRTK_ExpansionLevel == 3 then
+	if GRTK_WoWVersion == "Retail" then
 	    GRTK_Options_CreateOptionsEntry("UseAccountWide", nil, 6, 1, true)
 		GRTK_Options_CreateOptionsEntry("Enabled", nil, 6, 1, true)
 		GRTK_Options_CreateOptionsEntry("OrderType", nil, 6, 2, 1, 1)
@@ -148,7 +149,8 @@ GRTK_Event_Setup_PlayerLogin:SetScript("OnEvent", function(_, event)
 
             -- pre-options menu setup
 			GRTK_Setup_PlayerStats()
-			GRTK_Setup_GameClientVersion()
+			GRTK_Setup_DetectGameVersion()
+			GRTK_Setup_GameVersionAdjustments()
 			GRTK_Setup_CreateDefaultProfiles()
             GRTK_Setup_LoadLanguage()
             GRTK_Setup_DevourerUnlock()
@@ -161,14 +163,14 @@ GRTK_Event_Setup_PlayerLogin:SetScript("OnEvent", function(_, event)
 
 
             -- post-options menu setup
-			if GRTK_ExpansionLevel == 3 then
+			if GRTK_WoWVersion == "Retail" then
                 GRTK_SpecChange_LoadValuesFromProfile()
             end
 
             -- create frames
             GRTK_CreateFrame_LockdownMessage()
             GRTK_CreateFrame_RepairMessage()
-			if GRTK_ExpansionLevel > 1 then
+			if GRTK_WoWVersion == "Retail" or GRTK_WoWVersion == "MoP" then
                 GRTK_CreateFrame_Mounts()
 			end
 			GRTK_EditMode_RegisterFramesForEditMode()
@@ -176,12 +178,12 @@ GRTK_Event_Setup_PlayerLogin:SetScript("OnEvent", function(_, event)
 
             -- create macros
             if GRTK_General_CombatCheck() == false then
-			    if GRTK_ExpansionLevel > 1 then
+			    if GRTK_WoWVersion == "Retail" or GRTK_WoWVersion == "MoP" then
 			        GRTK_Macros_Delete("Mounts")
 			    end
 
 
-			    if GRTK_ExpansionLevel == 3 then
+			    if GRTK_WoWVersion == "Retail" then
 			        GRTK_Macros_Delete("Hearthstone")
                     if GRTK_UV("NilCheck", 6, "Hearthstone_List") == true then
                         GRTK_Hearthstone_GenerateNewList()

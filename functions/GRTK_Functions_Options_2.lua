@@ -118,13 +118,14 @@ function GRTK_Options_OnSettingChanged_Sounds(setting, value)
             local GRTKTemp_Index = value
             local GRTKTemp_MaxRandom = 2
 
-            if GRTK_ExpansionLevel == 3 then
+            if GRTK_WoWVersion == "Retail" then
                 GRTKTemp_MaxRandom = #GRTK_Sounds_Victory_RandomList_Retail
-            elseif GRTK_ExpansionLevel == 2 then
+            elseif GRTK_WoWVersion == "MoP" then
                 GRTKTemp_MaxRandom = #GRTK_Sounds_Victory_RandomList_MoP
-            elseif GRTK_ExpansionLevel == 1 then
-                GRTKTemp_MaxRandom = #GRTK_Sounds_Victory_RandomList_Classic
-            else
+            elseif GRTK_WoWVersion == "Forever" then
+				GRTKTemp_MaxRandom = #GRTK_Sounds_Victory_RandomList_Forever
+			else
+				GRTKTemp_MaxRandom = #GRTK_Sounds_Victory_RandomList_Classic
             end
 
             if GRTKTemp_Index == 21 then

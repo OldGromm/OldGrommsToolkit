@@ -45,19 +45,52 @@ end
 
 function GRTK_RepairMessage_CheckCurrentLocation()
     local GRTKTemp_Proceed = false
-	local GRTKTemp_CurrentArea = select(8, GetInstanceInfo())
-    for i, v in ipairs(GRTK_InstanceList) do
-	    if GRTKTemp_CurrentArea == v then
-		    GRTKTemp_Proceed = true
-		end
-	end
+	local GRTKTemp_InstanceType = select(2, GetInstanceInfo())
 
-	if GRTK_ExpansionLevel == 3 then
+	-- On Retail, we're not displaying the repair message in older dungeons or raids, since
+	-- they can be done solo at max level even with broken/no gear at all.
+    -- Instead, we're using a custom list that includes both the current expansion instances,
+	-- as well as the few older dungeons included in the current mythic+ dungeon pool.
+	
+	-- First we go through the list.
+	-- Next, we check if this is a timewalking instance (where there is always a challenge).
+	-- Lastly, we're checking for any scenario or PvP situation.
+	
+	-- For all other versions of WoW, the repair message will be displayed in any instance.
+	if GRTK_WoWVersion == "Retail" then
+		local GRTKTemp_CurrentArea = select(8, GetInstanceInfo())
+        for i, v in ipairs(GRTK_InstanceList) do
+	        if GRTKTemp_CurrentArea == v then
+		        GRTKTemp_Proceed = true
+		    end
+	    end
+
 	    local GRTKTemp_DifficultyID = select(3, GetInstanceInfo())
 	    if GRTKTemp_DifficultyID == 24 then
 		    GRTKTemp_Proceed = true
 		end
+
+		local GRTKTemp_InstanceTypeListRetail = {"scenario", "arena", "pvp"}
+		for i, v in ipairs(GRTKTemp_InstanceTypeListRetail) do
+		    if GRTKTemp_InstanceType == v then
+			    GRTKTemp_Proceed = true
+			end
+		end
+	else
+		local GRTKTemp_InstanceTypeList = {"party", "raid", "scenario", "arena", "pvp"}
+		for i, v in ipairs(GRTKTemp_InstanceTypeList) do
+		    if GRTKTemp_InstanceType == v then
+			    GRTKTemp_Proceed = true
+			end
+		end
 	end
+	
+	if GRTK_UV("Load", 3, "RepairMessage_RestingArea") == true then
+	    if IsResting() == true then
+	        GRTKTemp_Proceed = true
+	    end
+	end
+
 
 	if GRTKTemp_Proceed == true then
 	    GRTK_RepairMessage_CheckDurability()

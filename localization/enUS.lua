@@ -70,6 +70,8 @@ GRTK_Text_Options_General_CompartmentButton_Description = "Check to show the but
 ---- Repair Message
 GRTK_Text_Options_RepairMessage_Enabled_Title = "Display Message"
 GRTK_Text_Options_RepairMessage_Enabled_Description = "Activates or deactivates the message."
+GRTK_Text_Options_RepairMessage_RestingArea_Title = "Display in resting areas"
+GRTK_Text_Options_RepairMessage_RestingArea_Description = "Displays the repair message when the player enters a resting area."
 GRTK_Text_Options_RepairMessage_Sound_Title = "Change Sound"
 GRTK_Text_Options_RepairMessage_Sound_Description = "Changes the sound that is being played alongside the repair message."
 GRTK_Text_Options_RepairMessage_Message = "Repair your gear!"

@@ -66,3 +66,10 @@ ________________________________________________
 
 - The mount macro will now force a ground mount for druids who use their Travel Form,
   if they're entering the passageway between Atal'Utek and the Coiled Isle.
+
+________________________________________________
+
+1.8
+
+- Added Forever support.
+- The repair message can now be shown whenever you enter a resting area (disabled by default).

@@ -61,13 +61,10 @@ function GRTK_SpecChange_Vanilla()
 end
 
 function GRTK_SpecChange_Keybind()
-    if GRTK_ExpansionLevel == 3 then
+    if GRTK_WoWVersion == "Retail" then
 	    GRTK_SpecChange_Midnight()
-	elseif GRTK_ExpansionLevel == 2 then
-	    GRTK_SpecChange_Vanilla()
-	elseif GRTK_ExpansionLevel == 1 then
-	    GRTK_SpecChange_Vanilla()
 	else
+	    GRTK_SpecChange_Vanilla()
 	end
 end
 

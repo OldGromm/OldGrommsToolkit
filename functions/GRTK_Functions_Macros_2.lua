@@ -189,7 +189,7 @@ function GRTK_Macros_Update(input_type)
 
 	-- if this is the hearthstone list, and the next one is the Draenic Hologem,
 	-- and this character isn't a draenei, skip this one and use the next stone in the list.
-	if GRTK_ExpansionLevel == 3 then
+	if GRTK_WoWVersion == "Retail" then
         if GRTKTemp_Type == "Hearthstone" then
     	    local GRTKTemp_CheckForHologem = GRTK_UV("Load", 6, GRTKTemp_Type.."_ChoiceCurrent")
     		if GRTKTemp_CheckForHologem == "210455" then

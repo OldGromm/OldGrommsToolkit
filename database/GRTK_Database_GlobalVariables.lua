@@ -9,8 +9,9 @@ GRTKDB_Options = {}
 
 
 
+
 -- Initialization
-GRTK_ExpansionLevel = 0
+GRTK_WoWVersion = ""
 GRTK_Compartment_Enable = false
 GRTK_InstanceList = {}
 GRTK_InstanceData = {}
@@ -38,7 +39,8 @@ GRTK_UserLanguage_Default = 1
 
 -- Library Add-ons
 GRTK_LibDBIcon = LibStub("LibDBIcon-1.0")
-GRTK_LibEditMode = LibStub("LibEditMode")
+local _, ns = ...
+GRTK_LibEditMode = ns.LibEditMode
 
 
 
@@ -86,11 +88,12 @@ GRTK_SpecChange_UnlockedDevourerSpec = false
 
 
 
-
 -- Repair Message
 GRTK_RepairMessage_SoundEntries = { 567399, 566652, 1880888, 897841 }
 GRTK_RepairMessage_OneProcessAlreadyRunning = false
 GRTK_RepairMessage_Frame_ScreenMessageText = {}
+GRTK_RepairMessage_UseCustomList = false
+
 
 
 
@@ -102,6 +105,7 @@ GRTK_Sounds_Victory_Entries = { 569678, 568480, 598724, 598343, 775180, 775184, 
 GRTK_Sounds_Victory_RandomList_Retail = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }
 GRTK_Sounds_Victory_RandomList_MoP = { 1, 2, 3, 4, 5, 6, 7, 8 }
 GRTK_Sounds_Victory_RandomList_Classic = { 1, 2 }
+GRTK_Sounds_Victory_RandomList_Forever = { 1, 2, 3, 4, 5, 6, 16 }
 
 
 
@@ -179,6 +183,7 @@ GRTK_Hearthstone_Cooldown = 0
 
 
 
+
 -- Options Menu
 GRTK_Options = {}
 GRTK_Options_Category_Main, GRTK_Options_Layout_Main = {}
@@ -203,6 +208,7 @@ GRTK_Options_Timeout = false
 
 
 
+
 -- Combat Lockdown Message
 GRTK_CombatLockdown_Message_Cooldown = false
 GRTK_CombatLockdown_Frame_Main = {}
@@ -215,6 +221,7 @@ GRTK_CombatLockdown_MessageType = {}
 
 
 
+
 -- Macros
 GRTK_MacroTextBody = {}
 
@@ -222,17 +229,12 @@ GRTK_MacroTextBody = {}
 
 
 -- Edit Mode
-GRTK_EditMode_FramesList_ExpansionLevel_3 = {
+GRTK_EditMode_FramesList_Full = {
     { ["framename"] = "RepairMessage", ["position"] = "CENTER", ["coordinates_x"] = 0.0, ["coordinates_y"] = 100.0 },
 	{ ["framename"] = "Mounts", ["position"] = "CENTER", ["coordinates_x"] = 160.0, ["coordinates_y"] = 250.0 },
 	{ ["framename"] = "CombatLockdown", ["position"] = "CENTER", ["coordinates_x"] = -300.0, ["coordinates_y"] = 250.0 },
 }
-GRTK_EditMode_FramesList_ExpansionLevel_2 = {
-    { ["framename"] = "RepairMessage", ["position"] = "CENTER", ["coordinates_x"] = 0.0, ["coordinates_y"] = 100.0 },
-	{ ["framename"] = "Mounts", ["position"] = "CENTER", ["coordinates_x"] = 160.0, ["coordinates_y"] = 250.0 },
-	{ ["framename"] = "CombatLockdown", ["position"] = "CENTER", ["coordinates_x"] = -300.0, ["coordinates_y"] = 250.0 },
-}
-GRTK_EditMode_FramesList_ExpansionLevel_1 = {
+GRTK_EditMode_FramesList_Classic = {
     { ["framename"] = "RepairMessage", ["position"] = "CENTER", ["coordinates_x"] = 0.0, ["coordinates_y"] = 100.0 },
 	{ ["framename"] = "CombatLockdown", ["position"] = "CENTER", ["coordinates_x"] = -300.0, ["coordinates_y"] = 250.0 },
 }

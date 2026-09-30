@@ -75,12 +75,12 @@ function GRTK_Options_CreateOptionsEntry(input_name, input_extratooltip, input_c
             elseif input_dropdownID == 4 then
                 container:Add(1, GRTK_Text_Options_RepairMessage_Entry_Alarm)
                 container:Add(2, GRTK_Text_Options_RepairMessage_Entry_HarborBell)
-                if GRTK_ExpansionLevel == 3 then
+				if GRTK_WoWVersion == "Retail" or GRTK_WoWVersion == "Forever" then
                     container:Add(3, GRTK_Text_Options_RepairMessage_Entry_ChurchBell)
                 end
-                if GRTK_ExpansionLevel > 1 then
+				if GRTK_WoWVersion ~= "Classic" then
                     container:Add(4, GRTK_Text_Options_RepairMessage_Entry_Siren)
-                end
+				end
             elseif input_dropdownID == 5 then
                 container:Add(1, GRTK_Text_Options_Sounds_ChannelName_Master)
                 container:Add(2, GRTK_Text_Options_Sounds_ChannelName_Music)
@@ -90,15 +90,17 @@ function GRTK_Options_CreateOptionsEntry(input_name, input_extratooltip, input_c
             elseif input_dropdownID == 6 then
                 container:Add(1, GRTK_Text_Options_Sounds_Victory_Entry_PvP.." ("..GRTK_Text_Options_Sounds_Victory_Entry_Alliance..")")
                 container:Add(2, GRTK_Text_Options_Sounds_Victory_Entry_PvP.." ("..GRTK_Text_Options_Sounds_Victory_Entry_Horde..")")
-                if GRTK_ExpansionLevel > 1 then
+                if GRTK_WoWVersion ~= "Classic" then
                     container:Add(3, GRTK_Text_Options_Sounds_Victory_Entry_SoA.." ("..GRTK_Text_Options_Sounds_Victory_Entry_Alliance..")")
                     container:Add(4, GRTK_Text_Options_Sounds_Victory_Entry_SoA.." ("..GRTK_Text_Options_Sounds_Victory_Entry_Horde..")")
                     container:Add(5, GRTK_Text_Options_Sounds_Victory_Entry_Brawler.." ("..GRTK_Text_Options_Sounds_Victory_Entry_Alliance..")")
                     container:Add(6, GRTK_Text_Options_Sounds_Victory_Entry_Brawler.." ("..GRTK_Text_Options_Sounds_Victory_Entry_Horde..")")
-                    container:Add(7, GRTK_Text_Options_Sounds_Victory_Entry_PetBattles.." ("..GRTK_Text_Options_Sounds_Victory_Entry_Alliance..")")
+				end
+                if GRTK_WoWVersion == "Retail" or GRTK_WoWVersion == "MoP" then
+					container:Add(7, GRTK_Text_Options_Sounds_Victory_Entry_PetBattles.." ("..GRTK_Text_Options_Sounds_Victory_Entry_Alliance..")")
                     container:Add(8, GRTK_Text_Options_Sounds_Victory_Entry_PetBattles.." ("..GRTK_Text_Options_Sounds_Victory_Entry_Horde..")")
                 end
-                if GRTK_ExpansionLevel == 3 then
+                if GRTK_WoWVersion == "Retail" then
                     container:Add(9, GRTK_Text_Options_Sounds_Victory_Entry_Islands.." ("..GRTK_Text_Options_Sounds_Victory_Entry_Alliance..")")
                     container:Add(10, GRTK_Text_Options_Sounds_Victory_Entry_Islands.." ("..GRTK_Text_Options_Sounds_Victory_Entry_Horde..")")
                     container:Add(11, GRTK_Text_Options_Sounds_Victory_Entry_Islands.." ("..GRTK_Text_Options_Sounds_Victory_Entry_Mystical..")")
@@ -107,9 +109,11 @@ function GRTK_Options_CreateOptionsEntry(input_name, input_extratooltip, input_c
                     container:Add(14, GRTK_Text_Options_Sounds_Victory_Entry_Darkshore.." ("..GRTK_Text_Options_Sounds_Victory_Entry_Alliance..")")
                     container:Add(15, GRTK_Text_Options_Sounds_Victory_Entry_Darkshore.." ("..GRTK_Text_Options_Sounds_Victory_Entry_Horde..")")
                 end
-                if GRTK_ExpansionLevel == 3 then
+                if GRTK_WoWVersion == "Retail" or GRTK_WoWVersion == "Forever" then
                     container:Add(16, GRTK_Text_Options_Sounds_Victory_Entry_Hearthstone)
-                    container:Add(17, GRTK_Text_Options_Sounds_Victory_Entry_Darkmoon.." ("..GRTK_Text_Options_Sounds_Victory_Entry_CalltoArms..")")
+                end
+				if GRTK_WoWVersion == "Retail" then
+				    container:Add(17, GRTK_Text_Options_Sounds_Victory_Entry_Darkmoon.." ("..GRTK_Text_Options_Sounds_Victory_Entry_CalltoArms..")")
                     container:Add(18, GRTK_Text_Options_Sounds_Victory_Entry_Darkmoon.." ("..GRTK_Text_Options_Sounds_Victory_Entry_LionsPride..")")
                     container:Add(19, GRTK_Text_Options_Sounds_Victory_Entry_Darkmoon.." ("..GRTK_Text_Options_Sounds_Victory_Entry_PrideoftheSeas..")")
                 end

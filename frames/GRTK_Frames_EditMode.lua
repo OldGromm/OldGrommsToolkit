@@ -11,7 +11,12 @@ end
 
 
 function GRTK_EditMode_RegisterFramesForEditMode()
-    local GRTKTemp_TableName = ("GRTK_EditMode_FramesList_ExpansionLevel_"..tostring(GRTK_ExpansionLevel))
+    local GRTKTemp_FramesListSuffix = "Classic"
+	if GRTK_WoWVersion == "Retail" or GRTK_WoWVersion == "MoP" then
+	    GRTKTemp_FramesListSuffix = "Full"
+	end
+
+    local GRTKTemp_TableName = ("GRTK_EditMode_FramesList_"..GRTKTemp_FramesListSuffix)
 	local GRTKTemp_FrameTable = _G[GRTKTemp_TableName]
 
     for i, v in pairs(GRTKTemp_FrameTable) do

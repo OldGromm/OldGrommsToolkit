@@ -70,6 +70,8 @@ GRTK_Text_Options_General_CompartmentButton_Description = "Ändert den Anzeigest
 ---- Repair Message
 GRTK_Text_Options_RepairMessage_Enabled_Title = "Nachricht anzeigen"
 GRTK_Text_Options_RepairMessage_Enabled_Description = "Ändert den Anzeigestatus der Reparier-Nachricht."
+GRTK_Text_Options_RepairMessage_RestingArea_Title = "In einem Ruhebereich anzeigen"
+GRTK_Text_Options_RepairMessage_RestingArea_Description = "Zeigt die Nachricht an, wenn Ihr Euch in einem Gebiet befindet, in dem Ihr Euch ausruhen könnt."
 GRTK_Text_Options_RepairMessage_Sound_Title = "Sound ändern"
 GRTK_Text_Options_RepairMessage_Sound_Description = "Ändert den Soundeffekt, der mit der Nachricht abgespielt wird."
 GRTK_Text_Options_RepairMessage_Message = "Repariert Eure Ausrüstung!"

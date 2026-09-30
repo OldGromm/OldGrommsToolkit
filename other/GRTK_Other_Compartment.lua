@@ -31,7 +31,13 @@ function GRTK_CreateCompartmentButton()
             end,
             funcOnEnter = function(button)
                 MenuUtil.ShowTooltip(button, function(tooltip)
-                    tooltip:SetText(GRTK_Text_Compartment_Description_PartOne.."\n\n"..GRTK_Text_Compartment_Description_PartTwo.."\n\n"..GRTK_Text_Compartment_Description_PartThree)
+                    if GRTK_WoWVersion == "Retail" then
+                        tooltip:SetText(GRTK_Text_Compartment_Description_PartOne.."\n\n"..GRTK_Text_Compartment_Description_PartTwo.."\n\n"..GRTK_Text_Compartment_Description_PartThree)
+                    elseif GRTK_WoWVersion == "MoP" then
+                        tooltip:SetText(GRTK_Text_Compartment_Description_Vanilla_PartOne.."\n\n"..GRTK_Text_Compartment_Description_PartTwo.."\n\n"..GRTK_Text_Compartment_Description_PartThree)
+                    else
+                        tooltip:SetText(GRTK_Text_Compartment_Description_Vanilla_PartOne.."\n\n"..GRTK_Text_Compartment_Description_PartThree)
+                    end
                 end)
             end,
             funcOnLeave = function(button)

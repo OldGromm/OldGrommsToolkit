@@ -55,15 +55,15 @@ end
 function GRTK_Options_CategoryNames()
     GRTK_Options_Category_Main, GRTK_Options_Layout_Main = Settings.RegisterVerticalLayoutCategory(GRTK_Text_Options_Category_Title)
     GRTK_Options_Category_Sub_General, GRTK_Options_Layout_Sub_General = Settings.RegisterVerticalLayoutSubcategory(GRTK_Options_Category_Main, GRTK_Text_Options_Category_General)
-    if GRTK_ExpansionLevel == 3 then
+    if GRTK_WoWVersion == "Retail" then
 	    GRTK_Options_Category_Sub_SpecChange, GRTK_Options_Layout_Sub_SpecChange = Settings.RegisterVerticalLayoutSubcategory(GRTK_Options_Category_Main, GRTK_Text_Options_Category_SpecChange)
     end
 	GRTK_Options_Category_Sub_RepairMessage, GRTK_Options_Layout_Sub_RepairMessage = Settings.RegisterVerticalLayoutSubcategory(GRTK_Options_Category_Main, GRTK_Text_Options_Category_RepairMessage)
     GRTK_Options_Category_Sub_Sounds, GRTK_Options_Layout_Sub_Sounds = Settings.RegisterVerticalLayoutSubcategory(GRTK_Options_Category_Main, GRTK_Text_Options_Category_Sounds)
-	if GRTK_ExpansionLevel > 1 then
+	if GRTK_WoWVersion == "Retail" or GRTK_WoWVersion == "MoP" then
 	    GRTK_Options_Category_Sub_Mounts, GRTK_Options_Layout_Sub_Mounts = Settings.RegisterVerticalLayoutSubcategory(GRTK_Options_Category_Main, GRTK_Text_Options_Category_Mounts)
     end
-	if GRTK_ExpansionLevel == 3 then
+	if GRTK_WoWVersion == "Retail" then
         GRTK_Options_Category_Sub_Hearthstone, GRTK_Options_Layout_Sub_Hearthstone = Settings.RegisterVerticalLayoutSubcategory(GRTK_Options_Category_Main, GRTK_Text_Options_Category_Hearthstone)
 	end
 end

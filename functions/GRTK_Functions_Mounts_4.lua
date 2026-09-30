@@ -1,6 +1,6 @@
 -- Mount list menu (show/hide toggle)
 function GRTK_Mounts_ToggleMenu_MountList()
-    if GRTK_ExpansionLevel > 1 then
+    if GRTK_WoWVersion == "Retail" or GRTK_WoWVersion == "MoP" then
         if GRTK_Mounts_Frame_MountMenu:IsShown() then
             GRTK_Mounts_Frame_MountMenu:Hide()
         else

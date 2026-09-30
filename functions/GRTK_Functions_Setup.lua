@@ -92,15 +92,36 @@ end
 
 
 
+function GRTK_Setup_DetectGameVersion()
+	if WOW_PROJECT_ID == 1 and LE_EXPANSION_LEVEL_CURRENT == 0 then -- Forever
+        GRTK_WoWVersion = "Forever"
+    elseif WOW_PROJECT_ID == 1 and LE_EXPANSION_LEVEL_CURRENT == 12 then -- The Last Titan
+        GRTK_WoWVersion = "Retail"
+    elseif WOW_PROJECT_ID == 1 and LE_EXPANSION_LEVEL_CURRENT == 11 then -- Midnight
+        GRTK_WoWVersion = "Retail"
+    elseif WOW_PROJECT_ID == 19 and LE_EXPANSION_LEVEL_CURRENT == 4 then -- Mists of Pandaria
+        GRTK_WoWVersion = "MoP"
+    elseif WOW_PROJECT_ID == 11 and LE_EXPANSION_LEVEL_CURRENT == 2 then -- Wrath of the Lich King (Titan Reforged)
+        GRTK_WoWVersion = "Classic"
+    elseif WOW_PROJECT_ID == 5 and LE_EXPANSION_LEVEL_CURRENT == 1 then -- The Burning Crusade
+        GRTK_WoWVersion = "Classic"
+    elseif WOW_PROJECT_ID == 2 and LE_EXPANSION_LEVEL_CURRENT == 0 then -- Classic Era
+        GRTK_WoWVersion = "Classic"
+    else
+    end
+end
+
+
+
+
 -- Disable or change a few things depending on what version of WoW this is.
-function GRTK_Setup_GameClientVersion()
-    local GRTKTemp_InterfaceVersion = select(4, GetBuildInfo())
+function GRTK_Setup_GameVersionAdjustments()
     local GRTKTemp_ArenaSeason = GetCurrentArenaSeason()
 
 
-    ---- instance list to for the repair message function
-	if GRTKTemp_InterfaceVersion >= 120000 and GRTKTemp_InterfaceVersion <= 129999 then -- Midnight
-	    GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["Timeways"])
+    ---- custon instance list for Retail for the repair message function
+	if GRTK_WoWVersion == "Retail" and LE_EXPANSION_LEVEL_CURRENT == 11 then -- Midnight	    
+		GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["Timeways"])
 		GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["Midnight_Dungeons"])
 	    GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["Midnight_Raids"])
 	    GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["Midnight_Delves"])
@@ -109,52 +130,35 @@ function GRTK_Setup_GameClientVersion()
 		    GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["Midnight_Season1"])
 		elseif GRTKTemp_ArenaSeason == 42 then -- Midnight Season 2
 		    GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["Midnight_Season2"])
+		elseif GRTKTemp_ArenaSeason == 43 then -- Midnight Season 3
+		    GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["Midnight_Season3"])
+		elseif GRTKTemp_ArenaSeason == 0 then -- Midnight Season 3 pre-season
+		    GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["Midnight_Season2"])
+		    GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["Midnight_Season3"])
 		else
 		end
-	elseif GRTKTemp_InterfaceVersion >= 50000 and GRTKTemp_InterfaceVersion <= 59999 then -- Mists of Pandaria
-	    GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["Mists"])
-	elseif GRTKTemp_InterfaceVersion >= 30000 and GRTKTemp_InterfaceVersion <= 39999 then -- Wrath of the Lich King (Titan Reforged)
-	    GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["Vanilla"])
-	    GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["BurningCrusade"])
-	    GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["Wrath"])
-	elseif GRTKTemp_InterfaceVersion >= 20000 and GRTKTemp_InterfaceVersion <= 29999 then -- The Burning Crusade
-	    GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["BurningCrusade"])
-	elseif GRTKTemp_InterfaceVersion >= 10000 and GRTKTemp_InterfaceVersion <= 19999 then -- Vanilla
-	    GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["Vanilla"])
-	else
-    end
-
-
-	---- complete list of PvP zones from Retail (will always be included).
-	GRTK_General_MergeTables(GRTK_InstanceList, GRTK_InstanceData["PvP"])
+	end
 
 
     ---- compartment button
-	if GRTKTemp_InterfaceVersion >= 100000 then -- Dragonflight or later
+	if GRTK_WoWVersion == "Retail" or GRTK_WoWVersion == "Forever" then
 	    GRTK_Compartment_Enable = true
 	end
 
 
-	---- hide some options menu entries if this isn't Retail
-	if GRTKTemp_InterfaceVersion >= 120000 and GRTKTemp_InterfaceVersion <= 129999 then -- Midnight
-	    GRTK_ExpansionLevel = 3
-	elseif GRTKTemp_InterfaceVersion >= 50000 and GRTKTemp_InterfaceVersion <= 59999 then -- Mists of Pandaria
-	    GRTK_ExpansionLevel = 2
-	else
-	    GRTK_ExpansionLevel = 1
-	end
+
 	
 	
 	---- different combat lockdown messages
-	if GRTKTemp_InterfaceVersion >= 70000 then -- Legion or later
+	if GRTK_WoWVersion == "Retail" then
 	    GRTK_CombatLockdown_MessageType = {"Combat", "Encounter", "MythicPlus", "PvP"}
 	else
-	    GRTK_CombatLockdown_MythicPlus = {"Combat", "Encounter", "ChallengeMode", "PvP"}
+	    GRTK_CombatLockdown_MessageType = {"Combat", "Encounter", "ChallengeMode", "PvP"}
 	end
 
 
 	---- retrieve the zone names for the Atal'Utek check for the mount macro
-	if GRTKTemp_InterfaceVersion >= 120000 then
+	if GRTK_WoWVersion == "Retail" then
 	    GRTK_Mounts_AtalUtek_Main = C_Map.GetAreaInfo(16535)
         for i, v in ipairs(GRTK_Mounts_AtalUtek_Sub_List) do
             local GRTKTemp_ZoneName = C_Map.GetAreaInfo(v)
@@ -183,18 +187,18 @@ function GRTK_Setup_UpdateEventRegistration()
     -- Sounds (Victory)
     if GRTK_UV("Load", 4, "Sounds_Victory") == 21 then
 	    GRTK_Event_Sound_EncounterEnd:UnregisterEvent("ENCOUNTER_END")
-		if GRTK_ExpansionLevel > 1 then
+		if GRTK_WoWVersion == "Retail" then
 		    GRTK_Event_Sound_ChallengeModeCompleted:UnregisterEvent("CHALLENGE_MODE_COMPLETED")
 		end
     else
 	    GRTK_Event_Sound_EncounterEnd:RegisterEvent("ENCOUNTER_END")
-		if GRTK_ExpansionLevel > 1 then
+		if GRTK_WoWVersion == "Retail" then
 		    GRTK_Event_Sound_ChallengeModeCompleted:RegisterEvent("CHALLENGE_MODE_COMPLETED")
 		end
 	end
 
     -- Sounds (Talking Head)
-	if GRTK_ExpansionLevel == 3 then
+	if GRTK_WoWVersion == "Retail" then
 	    if GRTK_UV("Load", 4, "Sounds_TalkingHeadEnabled") == true then
 	        GRTK_Event_TalkingHead_Requested:RegisterEvent("TALKINGHEAD_REQUESTED")
 		else
@@ -203,7 +207,7 @@ function GRTK_Setup_UpdateEventRegistration()
 	end
 
     -- Mounts
-	if GRTK_ExpansionLevel > 1 then
+	if GRTK_WoWVersion == "Retail" or GRTK_WoWVersion == "MoP" then
         if GRTK_UV("Load", 5, "Mounts_Enabled") == true then
 	        GRTK_Event_Mounts_PlayerIsUnderwater:RegisterEvent("MIRROR_TIMER_START")
 			GRTK_Event_Mounts_MountSummon:RegisterEvent("PLAYER_MOUNT_DISPLAY_CHANGED")
@@ -222,7 +226,7 @@ function GRTK_Setup_UpdateEventRegistration()
 	end
 
     -- Hearthstone
-	if GRTK_ExpansionLevel == 3 then
+	if GRTK_WoWVersion == "Retail" then
         if GRTK_UV("Load", 6, "Hearthstone_Enabled") == true then
 	        GRTK_Event_ToysUpdated:RegisterEvent("LOADING_SCREEN_DISABLED")
         else
