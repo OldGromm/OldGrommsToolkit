@@ -93,7 +93,7 @@ end
 
 
 function GRTK_Setup_DetectGameVersion()
-	if WOW_PROJECT_ID == 1 and LE_EXPANSION_LEVEL_CURRENT == 0 then -- Forever
+	if WOW_PROJECT_ID == 18 and LE_EXPANSION_LEVEL_CURRENT == 0 then -- Forever
         GRTK_WoWVersion = "Forever"
     elseif WOW_PROJECT_ID == 1 and LE_EXPANSION_LEVEL_CURRENT == 12 then -- The Last Titan
         GRTK_WoWVersion = "Retail"
@@ -282,9 +282,9 @@ function GRTK_Setup_LoadLanguage()
     ---- check if variable is empty
     if GRTK_UV("NilCheck", 1, "General_Language") == true then
         ---- check if the player's game client locale is supported by the add-on.
-        for i, v in ipairs(GRTK_UserLanguage_SupportedLanguage) do
-            if GRTKTemp_GameClientLocale == v then
-				GRTK_UserLanguage_Default = i
+        for _, v in pairs(GRTK_Database_Locales) do
+            if GRTKTemp_GameClientLocale == v["locale"] then
+				GRTK_UserLanguage_Default = v["ID"]
 	        end
         end
 	else
@@ -293,12 +293,16 @@ function GRTK_Setup_LoadLanguage()
 	
 	
 	-- load language file
-	if GRTK_UserLanguage_Default == 1 then
-        GRTK_LoadLanguage_enUS()
-    elseif GRTK_UserLanguage_Default == 2 then
-        GRTK_LoadLanguage_deDE()
-    else
+    local GRTKTemp_LocaleString = ""
+
+    for _, v in pairs(GRTK_Database_Locales) do
+        if GRTK_UserLanguage_Default == v["ID"] then
+            GRTKTemp_LocaleString = v["locale"]
+        end
     end
+	local GRTKTemp_LanguageFunctionName = ("GRTK_LoadLanguage_"..GRTKTemp_LocaleString)
+    local GRTKTemp_LanguageFunction = _G[GRTKTemp_LanguageFunctionName]
+    GRTKTemp_LanguageFunction()
 	
 end
 

@@ -44,6 +44,48 @@ end
 
 
 
+function GRTK_Mounts_CheckInventoryForBroom()
+    local HasBroom = false
+    for i=0, 4 do
+	    local Bag = i
+	    -- check if slot has a bag item
+        local TotalNumberOfSlots = C_Container.GetContainerNumSlots(Bag)
+        if TotalNumberOfSlots == 0 or TotalNumberOfSlots == nil then
+		
+		else
+            for i2=1, TotalNumberOfSlots do
+                local ItemInfo = C_Container.GetContainerItemInfo(Bag, i2)
+				if ItemInfo == nil then
+				
+				else
+				    if ItemInfo.itemID == 37011 then
+				        HasBroom = true
+				    end
+				end
+            end
+		end
+	end
+
+    return HasBroom
+end
+
+
+
+
+function GRTK_Mounts_CheckBroomMount(input_broomID)
+    local BroomMountName = ""
+
+    local GRTKTemp_Unlocked = select(11, C_MountJournal.GetMountInfoByID(input_broomID))
+    if GRTKTemp_Unlocked == true then
+		BroomMountName = GRTK_Macros_FetchMountName(input_broomID)
+	end
+
+    return BroomMountName
+end
+
+
+
+
 function GRTK_Mounts_CheckForOverrides()
     -- Check for zone-specific mounts and override the player's mount choice temporarily.
 	local GRTKTemp_uiMapID = C_Map.GetBestMapForUnit("player")
@@ -186,4 +228,32 @@ function GRTK_Mounts_CheckForOverrides()
 	        GRTK_UV("Reset", 5, "Mounts_Ground_ChoiceOverride")
 	    end
 	end
+
+
+    ---- Use the broom item or a broom mount during Hallow's End.
+	if GRTK_General_CheckCurrentHolidayEvent("Hallow's End") == true then
+        local GRTKTemp_Option_Broom = GRTK_UV("Load", 5, "Mounts_Broom")
+	
+	    if GRTKTemp_Option_Broom == 7 then
+
+	    elseif GRTKTemp_Option_Broom == 1 then
+            if GRTK_Mounts_CheckInventoryForBroom() == true then
+		        local ItemName = GRTK_Macros_FetchItemName(37011)
+                GRTK_UV("Set", 5, "Mounts_Ground_ChoiceOverride", ItemName)
+                GRTK_UV("Set", 5, "Mounts_Flying_ChoiceOverride", ItemName)
+            end
+	    else
+		    local BroomCount = 1
+            for i, v in ipairs(GRTK_Mounts_BroomMountList) do
+			    BroomCount = BroomCount + 1
+			    if GRTKTemp_Option_Broom == BroomCount then
+                    local BroomMountName = GRTK_Mounts_CheckBroomMount(v)
+                    GRTK_UV("Set", 5, "Mounts_Ground_ChoiceOverride", BroomMountName)
+                    GRTK_UV("Set", 5, "Mounts_Flying_ChoiceOverride", BroomMountName)
+				end
+		    end
+	    end
+	end
+
+
 end

@@ -166,6 +166,10 @@ GRTK_Text_Options_Mounts_Worgen_Description = "Use \"Running Wild\" instead of a
 GRTK_Text_Options_Mounts_Dracthyr_Title = "Use Soar"
 GRTK_Text_Options_Mounts_Dracthyr_Description = "Use \"Soar\" instead of a flying mount."
 
+GRTK_Text_Options_Mounts_Broom_Title = "Use Broom"
+GRTK_Text_Options_Mounts_Broom_Description = "During Hallow's Eve, use a broom instead of a ground and flying mount."
+GRTK_Text_Options_Mounts_Broom_None = "Use No Broom"
+
 
 
 ---- Hearthstone Macro

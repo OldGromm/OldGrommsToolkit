@@ -21,6 +21,22 @@ end
 
 
 
+function GRTK_Macros_FetchItemName(input_itemID)
+    local GRTKTemp_Textstring = ""
+
+    local item = Item:CreateFromItemID(input_itemID)
+
+    item:ContinueOnItemLoad(function()
+	    local name = item:GetItemName() 
+	    GRTKTemp_Textstring = name
+    end)
+
+	return GRTKTemp_Textstring
+end
+
+
+
+
 function GRTK_Macros_FetchMountIcon(input_mountID)
     local GRTKTemp_IconID = 134400
 

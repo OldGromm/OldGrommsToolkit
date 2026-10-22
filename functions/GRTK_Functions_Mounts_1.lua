@@ -21,10 +21,6 @@ end
 
 
 
-
-
-
-
 function GRTK_Mounts_RefreshIconList()
     for i=1, 4 do
 	    local GRTKTemp_IconStringFinal = ""

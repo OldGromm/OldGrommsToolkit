@@ -18,10 +18,10 @@ function GRTK_General_SendChatMessage(input_text)
 	if GRTK_UV("Load", 1, "General_Messages") == true then
         if GRTKTemp_ChatLockdownIsActive == false then
 
-            GRTKTemp_Red = GRTK_UV("Load", 1, "General_Messages_Color_Red")
-            GRTKTemp_Green = GRTK_UV("Load", 1, "General_Messages_Color_Green")
-            GRTKTemp_Blue = GRTK_UV("Load", 1, "General_Messages_Color_Blue")
-            GRTKTemp_Color = CreateColor(GRTKTemp_Red, GRTKTemp_Green, GRTKTemp_Blue)
+            local GRTKTemp_Red = GRTK_UV("Load", 1, "General_Messages_Color_Red")
+            local GRTKTemp_Green = GRTK_UV("Load", 1, "General_Messages_Color_Green")
+            local GRTKTemp_Blue = GRTK_UV("Load", 1, "General_Messages_Color_Blue")
+            local GRTKTemp_Color = CreateColor(GRTKTemp_Red, GRTKTemp_Green, GRTKTemp_Blue)
             GRTKTemp_Color:GenerateHexColor()
 
 		    print(GRTKTemp_Color:WrapTextInColorCode(GRTK_Text_AddonNameAbbreviated).." - "..input_text)
@@ -97,4 +97,40 @@ function GRTK_General_PlaySoundFile(input_soundID, input_usesoundhandle)
 	else
 	    PlaySoundFile(GRTKTemp_SoundID, GRTKTemp_ChannelName)
 	end
+end
+
+
+
+
+-- check current holiday event
+function GRTK_General_CheckCurrentHolidayEvent(input_holiday)
+    local Proceed = false
+
+
+    local TextureID = 0
+    for _, v in pairs(GRTK_Database_CalendarEvents) do
+	    if input_holiday == v["Event"] then
+            TextureID = v["ID"]
+		end
+	end
+
+
+	local CurrentDateAndTime = C_DateAndTime.GetCurrentCalendarTime()
+	if CurrentDateAndTime == nil then
+	
+	else
+	    for i=1, 10 do
+            local CalendarEventInfo = C_Calendar.GetHolidayInfo(0, CurrentDateAndTime.monthDay, i)
+            if CalendarEventInfo == nil then
+			    break
+			else
+                if CalendarEventInfo.texture == TextureID then
+                    Proceed = true
+                end
+			end
+		end
+	end
+
+
+    return Proceed
 end

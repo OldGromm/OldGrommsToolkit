@@ -92,6 +92,9 @@ function GRTK_Initialization_CreateOptionsMenu()
     	if GRTK_PlayerStats_CurrentRace == 70 then --Dracthyr (Horde)
             GRTK_Options_CreateOptionsEntry("Dracthyr", nil, 5, 1, true)
     	end
+		if GRTK_General_CheckCurrentHolidayEvent("Hallow's End") == true then
+            GRTK_Options_CreateOptionsEntry("Broom", nil, 5, 2, 1, 9)
+		end
 	end
 
 

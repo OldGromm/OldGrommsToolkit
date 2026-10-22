@@ -1,8 +1,8 @@
 -- Color Picker
 function GRTK_Options_OnButtonClick_General_MessageColor()
-    GRTKTemp_Red = GRTK_UV("Load", 1, "General_Messages_Color_Red")
-    GRTKTemp_Green = GRTK_UV("Load", 1, "General_Messages_Color_Green")
-    GRTKTemp_Blue = GRTK_UV("Load", 1, "General_Messages_Color_Blue")
+    local GRTKTemp_Red = GRTK_UV("Load", 1, "General_Messages_Color_Red")
+    local GRTKTemp_Green = GRTK_UV("Load", 1, "General_Messages_Color_Green")
+    local GRTKTemp_Blue = GRTK_UV("Load", 1, "General_Messages_Color_Blue")
 
 	GRTK_General_ShowColorPicker(GRTKTemp_Red, GRTKTemp_Green, GRTKTemp_Blue)
 end

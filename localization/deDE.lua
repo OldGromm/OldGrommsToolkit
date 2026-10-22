@@ -166,6 +166,10 @@ GRTK_Text_Options_Mounts_Worgen_Description = "Es wird \"Wilde Hatz\" anstatt ei
 GRTK_Text_Options_Mounts_Dracthyr_Title = "Segeln verwenden"
 GRTK_Text_Options_Mounts_Dracthyr_Description = "Es wird \"Segeln\" anstatt eines fliegenden Reittieres verwendet."
 
+GRTK_Text_Options_Mounts_Broom_Title = "Magischen Besen verwenden"
+GRTK_Text_Options_Mounts_Broom_Description = "Es wird ein magischer Besen anstatt eines anderen Reittieres verwendet. (Gilt nur während der Schlotternächte)"
+GRTK_Text_Options_Mounts_Broom_None = "Keinen Besen verwenden"
+
 
 
 ---- Hearthstone Macro

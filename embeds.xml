@@ -11,8 +11,11 @@
 <Script file="localization\enUS.lua"/>
 <Script file="localization\deDE.lua"/>
 
+
 <Script file="database\GRTK_Database_GlobalVariables.lua"/>
 <Script file="database\GRTK_Database_InstanceList.lua"/>
+<Script file="database\GRTK_Database_Locales.lua"/>
+<Script file="database\GRTK_Database_CalendarEvents.lua"/>
 
 <Script file="functions\GRTK_Functions_Variables.lua"/>
 <Script file="functions\GRTK_Functions_General.lua"/>
@@ -40,7 +43,7 @@
 
 <Script file="other\GRTK_Other_MinimapButton.lua"/>
 <Script file="other\GRTK_Other_Compartment.lua"/>
-<Script file="other\GRTK_Other_ShashCommands.lua"/>
+<Script file="other\GRTK_Other_SlashCommands.lua"/>
 
 <Script file="main\GRTK_Main_Initialization.lua"/>
 <Script file="main\GRTK_Main_Events.lua"/>

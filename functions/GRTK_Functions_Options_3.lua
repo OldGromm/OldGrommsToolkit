@@ -120,14 +120,28 @@ function GRTK_Options_CreateOptionsEntry(input_name, input_extratooltip, input_c
                 container:Add(20, GRTK_Text_Options_Sounds_Victory_Entry_Random)
                 container:Add(21, GRTK_Text_Options_Sounds_Victory_Entry_None)
             elseif input_dropdownID == 7 then
-			    for i, v in ipairs(GRTK_UserLanguage_Full) do
-                    container:Add(i, v)
+			    for _, v in pairs(GRTK_Database_Locales) do
+                    container:Add(v["ID"], v["DropdownMenuEntry"])
 			    end
             elseif input_dropdownID == 8 then
                 container:Add(1, GRTK_Text_Options_General_CombatLockdown_Never)
                 container:Add(2, GRTK_Text_Options_General_CombatLockdown_Once)
                 container:Add(3, GRTK_Text_Options_General_CombatLockdown_Always)
-			else
+            elseif input_dropdownID == 9 then
+                local BroomItemName = GRTK_Macros_FetchItemName(37011)
+				container:Add(1, BroomItemName)
+                local BroomCount = 1
+                for _, v in ipairs(GRTK_Mounts_BroomMountList) do
+				    BroomCount = BroomCount + 1
+				    local BroomMountName = GRTK_Mounts_CheckBroomMount(v)
+					if BroomMountName == "" then
+					
+					else
+					    container:Add(BroomCount, BroomMountName)
+					end
+                    
+				end
+                container:Add(7, GRTK_Text_Options_Mounts_Broom_None)
 			end
         return container:GetData()
     end

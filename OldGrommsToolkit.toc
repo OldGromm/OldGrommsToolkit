@@ -1,7 +1,7 @@
-## Interface: 11509, 16001, 20506, 50504, 120100, 120105
+## Interface: 11509, 16001, 20506, 50504, 120105, 120107, 120200
 ## Title: OldGromm's Toolkit
 ## Author: OldGromm
-## Version: 1.8
+## Version: 1.9
 ## IconTexture: Interface\Addons\OldGrommsToolkit\images\GRTK_Images_Icon.blp
 ## Notes: Contains various smaller functions.
 ## Category: Other

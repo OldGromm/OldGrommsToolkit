@@ -73,3 +73,11 @@ ________________________________________________
 
 - Added Forever support.
 - The repair message can now be shown whenever you enter a resting area (disabled by default).
+
+________________________________________________
+
+1.9
+
+- Updated TOC version to support patch 12.1.5.
+- Added "Hiveborne Hearthstone" to the hearthstone list.
+- Added the option for the mount macro to use a magic broom during Hallow's End.

@@ -30,8 +30,6 @@ GRTK_Variables_UseTempProfileName = false
 
 
 -- Language
-GRTK_UserLanguage_SupportedLanguage = { "enUS", "deDE" }
-GRTK_UserLanguage_Full = { "English", "German (Deutsch)" }
 GRTK_UserLanguage_Default = 1
 
 
@@ -124,6 +122,7 @@ GRTK_Mounts_SpecialMountList = { 280, 284, 460, 1039, 2237, 2265, 2982, 3137 }
 GRTK_Mounts_SpecialMountList_Names = {}
 GRTK_Mounts_SpecialMountList_Final = {}
 GRTK_Mounts_SpecialMountList_PlayerHasNone = false
+GRTK_Mounts_BroomMountList = { 1799, 2328, 2329, 2330, 2331 }
 GRTK_Mounts_Frame_MountMenu = {}
 GRTK_Mounts_Frame_MountMenu_Visibility = false
 GRTK_Mounts_AtalUtek_Main = ""
@@ -134,7 +133,7 @@ GRTK_Mounts_AtalUtek_Sub_List = {16785, 16786, 16791, 16789, 16535}
 
 
 -- Hearthstone
-GRTK_Hearthstone_List = { 54452, 64488, 93672, 142542, 162973, 163045, 165669, 165670, 165802, 166746, 166747, 168907, 172179, 180290, 182773, 183716, 184353, 188952, 190196, 190237, 193588, 200630, 206195, 208704, 209035, 210455, 212337, 228940, 235016, 236687, 245970, 246565, 257736, 263489, 263933, 264367, 265100 }
+GRTK_Hearthstone_List = { 54452, 64488, 93672, 142542, 162973, 163045, 165669, 165670, 165802, 166746, 166747, 168907, 172179, 180290, 182773, 183716, 184353, 188952, 190196, 190237, 193588, 200630, 206195, 208704, 209035, 210455, 212337, 228940, 235016, 236687, 245970, 246565, 257736, 263489, 263933, 264367, 265100, 281136 }
 GRTK_Hearthstone_Icon = {}
 GRTK_Hearthstone_Icon[54452] = 236222
 GRTK_Hearthstone_Icon[64488] = 458254
@@ -173,7 +172,7 @@ GRTK_Hearthstone_Icon[263489] = 1708141
 GRTK_Hearthstone_Icon[263933] = 5929569
 GRTK_Hearthstone_Icon[264367] = 7702758
 GRTK_Hearthstone_Icon[265100] = 4914667
-
+GRTK_Hearthstone_Icon[281136] = 134932
 GRTK_Hearthstone_SpecialStoneList = { 140192, 110560, 253629 }
 GRTK_Hearthstone_Missing_List = {}
 GRTK_Hearthstone_Missing_Count = 0
